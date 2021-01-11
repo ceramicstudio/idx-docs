@@ -1,0 +1,113 @@
+site_name: IDX Documentation
+site_url: https://docs.idx.xyz
+site_description: Documentation for IDX
+repo_url: https://github.com/ceramicstudio/js-idx
+repo_name: ceramicstudio/js-idx
+
+# Copyright
+copyright: 'IDX is open sourced under MIT and Apache 2'
+
+theme:
+  name: material
+  custom_dir: overrides
+  # 404 page
+  static_templates:
+    - 404.html
+  palette:
+    scheme: default
+  logo: images/idx-white.svg
+  icon:
+    repo: fontawesome/brands/github-alt
+  favicon: images/favicon.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.expand
+    - navigation.sections
+    - header.autohide
+
+nav:
+  - Learn:
+      - Welcome: learn/welcome.md
+      - Overview: learn/overview.md
+      - Glossary: learn/glossary.md
+      - Packages: learn/packages.md
+      - Ecosystem: learn/license.md
+  - Build:
+      - Quick Start: build/quick-start.md
+      - Installation: build/installation.md
+      - Adding aliases: build/aliases.md
+      - Authentication: build/authentication.md
+      - Reading records: build/reading.md
+      - Writing records: build/writing.md
+      - Share your project: build/share.md
+      - Troubleshooting: build/troubleshooting.md
+  - Guides:
+      - Definitions:
+          - Default definitions: guides/definitions/default.md
+          - Existing definitions: guides/definitions/discovering.md
+          - Creating definitions: guides/definitions/creating.md
+      - Storage:
+          - Ceramic storage: guides/storage/ceramic.md
+          - Textile storage: guides/storage/textile.md
+      - CLI:
+          - Using the CLI: guides/cli.md
+      - Development:
+          - Server-side rendering: guides/advanced-development/server-side-rendering.md
+          - Bootstrap scripts: guides/advanced-development/bootstrap-script.md
+  - Reference:
+      - IDX SDK: reference/idx.md
+      - IDX CLI: reference/cli.md
+      - IDX Tools: reference/idx-tools.md
+      - IDX Constants: reference/idx-constants.md
+      - Types: reference/types.md
+      - Dependency APIs: reference/dependency-apis.md
+  - Chat: 'https://chat.idx.xyz'
+  - Blog: 'https://blog.ceramic.network/tag/identity'
+
+markdown_extensions:
+  - meta
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.smartsymbols
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra:
+  generator: false
+  # Social icone in footer
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://chat.ceramic.network
+      name: Ceramic community on Discord
+    - icon: fontawesome/brands/github
+      link: https://github.com/ceramicnetwork/ceramic
+      name: Ceramicnetwork on Github
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ceramicnetwork
+      name: Ceramicnetwork on Twitter
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ceramicnetwork
+      name: Ceramicnetwork on Youtube
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - javascripts/tables.js
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  # - redirects:
+  #     redirect_maps:
+  #         'index.md': 'http://developers.ceramic.network'
