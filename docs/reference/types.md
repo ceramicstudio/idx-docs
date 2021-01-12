@@ -8,6 +8,14 @@ An opaque key used to identify records in the index.
 type IndexKey = string
 ```
 
+### **Index**
+
+Represents the shape of the content stored in the index.
+
+```ts
+type Index = Record<IndexKey, string>
+```
+
 ### **Schema**
 
 A type representing a JSON Schema.
@@ -21,73 +29,46 @@ type Schema = Record<string, unknown>
 A definition is a Ceramic document that describes a record in the index.
 
 ```ts
-interface Definition<T = unknown> {
+type Definition<C extends Record<string, any> = Record<string, any>> = {
   name: string
-  schema: string
   description: string
+  schema: string
   url?: string
   family?: string
-  config?: T
+  config?: C
 }
 ```
 
-### **DefinitionsAliases**
+### **DefinitionWithID**
 
 ```ts
-type DefinitionsAliases = Record<string, string>
+type DefinitionWithID<
+  C extends Record<string, unknown> = Record<string, unknown>
+> = Definition<C> & { id: DocID }
 ```
 
-### **ContentEntry**
+### **Aliases**
 
 ```ts
-interface ContentEntry {
+type Aliases = Record<string, string>
+```
+
+### **Entry**
+
+```ts
+type Entry = {
   key: IndexKey
-  ref: string
-  content: unknown
-}
-```
-
-### **IdentityIndexContent**
-
-Represents the shape of the content stored in the index.
-
-```ts
-type IdentityIndexContent = Record<IndexKey, string>
-```
-
-### **EncodedDagJWS**
-
-```ts
-interface EncodedDagJWS {
-  payload: string
-  signatures: Array<JWSSignature>
-  link: string
-}
-```
-
-### **EncodedDagJWSResult**
-
-```ts
-interface EncodedDagJWSResult {
-  jws: EncodedDagJWS
-  linkedBlock: string
+  id: string
+  record: unknown
 }
 ```
 
 ### **DefinitionName**
 
-Name aliases of definitions provided by the [`idx-tools`]() library.
+Name for aliases of core IDX definitions.
 
 ```ts
 type DefinitionName = 'basicProfile' | 'cryptoAccountLinks' | 'threeIdKeychain'
-```
-
-### **SignedDefinitions**
-
-Signed definitions provided by the [`idx-tools`]() library.
-
-```ts
-type SignedDefinitions = Record<DefinitionName, DagJWSResult>
 ```
 
 ### **PublishedDefinitions**
@@ -100,7 +81,7 @@ type PublishedDefinitions = Record<DefinitionName, string>
 
 ### **SchemaName**
 
-Names of schemas provided by the [`idx-tools`]() library
+Name for aliases of core IDX schemas.
 
 ```ts
 type SchemaName =
@@ -109,14 +90,6 @@ type SchemaName =
   | 'Definition'
   | 'IdentityIndex'
   | 'ThreeIdKeychain'
-```
-
-### **SignedSchemas**
-
-Signed schemas provided by the [`idx-tools`]() library
-
-```ts
-type SignedSchemas = Record<SchemaName, DagJWSResult>
 ```
 
 ### **PublishedSchemas**
@@ -135,33 +108,6 @@ Definitions and schemas published to Ceramic.
 interface PublishedConfig {
   definitions: PublishedDefinitions
   schemas: PublishedSchemas
-}
-```
-
-### **PublishDoc**
-
-```ts
-interface PublishDoc<T = unknown> {
-  id?: DocID | string
-  content: T
-  controllers?: Array<string>
-  schema?: DocID | string
-}
-```
-
-### **DefinitionDoc**
-
-```ts
-interface DefinitionDoc extends PublishDoc<Definition> {
-  id: DocID | string
-}
-```
-
-### **SchemaDoc**
-
-```ts
-interface SchemaDoc extends PublishDoc<Schema> {
-  name: string
 }
 ```
 

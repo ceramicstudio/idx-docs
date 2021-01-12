@@ -6,7 +6,7 @@
 
 ### **Index**
 
-The index is a key-value store document that stores a list of [definitionID](#definition) to [recordID](#record) mappings. These mappings repreresent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
+The index is a key-value store document that stores a list of [definitionID](#definitionid) to [recordID](#recordid) mappings. These mappings repreresent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
 
 === "Example index"
 
@@ -189,7 +189,7 @@ Records can be used to store references to [external datastores](). Typically th
 
 ### **Alias**
 
-An alias is an application-level construct that makes it easy to reference and interact with [definitions]() in your project. Aliases are mappings from human-readable names to [definitionIDs]().
+An alias is an application-level construct that makes it easy to reference and interact with [definitions](#definition) in your project. Aliases are mappings from human-readable names to [definitionIDs](#definitionid).
 
 === "Example aliases"
 
@@ -202,7 +202,7 @@ const aliases = {
 
 ### **DID**
 
-DIDs is the [W3C standard]() for gloablly unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation]().
+DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation]().
 
 === "Example DID"
 
@@ -256,8 +256,8 @@ A schemaURL is a [Ceramic]() URL for a [schema](#schema).
 
 A recordID is a [docID](#docid) of a [record](#record).
 
-### **VersionIDs**
+### **VersionID**
 
 ### **External datastores**
 
-External datastores are datastores that provide storage for content beyond records. Oftentimes records will contain [references]() to one or more external datastores.
+External datastores are datastores that provide storage for content beyond records. Oftentimes records will contain [references](#references) to one or more external datastores.

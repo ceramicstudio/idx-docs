@@ -1,6 +1,6 @@
 # Dependency APIs
 
-These interfaces are used by IDX, but provided by others.
+These interfaces are used by IDX, but provided by other libraries.
 
 ### **CeramicApi**
 
@@ -8,11 +8,11 @@ Ceramic API interface exported by the [`@ceramicnetwork/common`]() library
 
 ### **DID**
 
-DID instance exported by the [`dids`]() library
+DID instance exported by the [`dids`](https://github.com/ceramicnetwork/js-did) library
 
 ### **DIDProvider**
 
-DID Provider interface exported by the [`dids`]() library
+DID Provider interface exported by the [`dids`](https://github.com/ceramicnetwork/js-did) library
 
 ### **DocID**
 
@@ -24,4 +24,4 @@ Doctype interface exported by the [`@ceramicnetwork/common`]() library
 
 ### **JWSSignature**
 
-JWS Signature interface exported by the [`dids`]() library
+JWS Signature interface exported by the [`dids`](https://github.com/ceramicnetwork/js-did) library

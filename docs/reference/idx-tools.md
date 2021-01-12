@@ -2,148 +2,40 @@
 
 ## Installation
 
-## API Methods
+> IDX tools should most likely be installed as a developement dependency, it is not meant to be used at runtime by applications
 
-The APIs below are only available in the `idx-tools` library. Additional APIs not found on this page but are also accessible from the `idx-tools` library can be found at [`idx-constants`]().
+```sh
+npm install -D @ceramicstudio/idx-tools
+```
 
-### **isSecureSchema**
+## APIs
 
-Checks if a JSON schema is valid and secure according to [Ajv's secure schema]().
+### **isValidDefinition()**
 
-Arguments:
+Checks if the provided input is a valid [definition](types.md#definition).
 
-- `schema`: Schema
+**Arguments:**
 
-Returns: `boolean`
+1. `definition: unknown`
 
-=== "Request"
+**Returns:** `boolean`
 
-    ```javascript
-    ```
+### **isSecureSchema()**
 
-=== "Response"
+Checks if a JSON schema is valid and secure according to [Ajv's secure schema](https://github.com/ajv-validator/ajv#security-risks-of-trusted-schemas).
 
-    ```javascript
-    ```
+**Arguments:**
 
----
+1. [`schema: Schema`](types.md#schema)
 
-### **publishDoc**
+**Returns:** `boolean`
 
-Creates or updates a document defined by the PublishDoc interface
+### **publishIDXConfig()**
 
-Type parameters:
+Publishes the signed definitions and schemas provided by IDX to the provided Ceramic instace.
 
-- `T` = unknown
+**Arguments:**
 
-Arguments:
+1. [`ceramic: CeramicApi`](dependency-apis.md#ceramicapi)
 
-- `ceramic`: CeramicApi
-- `doc`: PublishDoc<T>
-
-Returns: `Promise<DocID>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **createDefinition**
-
-Creates and publishes a new [definition]().
-
-Arguments:
-
-- `ceramic`: CeramicApi
-- `definition`: Definition
-
-Returns: `Promise<DocID>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **updateDefinition**
-
-Similar to [`publishDoc`]() for an existing DefinitionDoc.
-
-Arguments:
-
-- `ceramic`: CeramicApi
-- `doc`: DefinitionDoc
-
-Returns: `Promise<boolean>` whether the definition contents have changed
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **publishSchema**
-
-Similar to [`publishDoc`]() for a [SchemaDoc](), with additional validation using validateSchema.
-
-Arguments:
-
-- `ceramic`: CeramicApi
-- `doc`: SchemaDoc
-
-Returns: `Promise<DocID>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **publishIDXConfig**
-
-Publishes the signed definitions and schemas provided by IDX.
-
-Arguments:
-
-- `ceramic`: CeramicApi
-
-Returns: `Promise<PublishedConfig>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
-</br>
-</br>
-</br>
+**Returns:** [`Promise<PublishedConfig>`](types.md#publishedconfig)

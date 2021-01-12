@@ -1,69 +1,21 @@
 # IDX Constants Reference
 
 ## Installation
-`idx-constants` is included by default in the [`idx-tools`]() library, but if you wanted to install it separately:
 
 ```sh
 npm install @ceramicstudio/idx-constants
 ```
 
-## API Methods
+## Constants
+
+### **definitions**
+
+Exports a record of the core definitions provided by IDX.
+
+**Returns:** [`PublishedDefinitions`](types.md#publisheddefinitions)
 
 ### **schemas**
-Returns a record of the schemas included in `idx-constants`, keyed by IDX schema name:
 
-- `BasicProfile`: see [Basic Profile CIP]()
-- `CryptoAccounts`: see [Crypto Accounts CIP]()
-- `Definition`: (CIP to be defined)
-- `IdentityIndex` see [Identity Index CIP]()
-- `ThreeIdKeychain`:
+Exports a record of the core schemas provided by IDX.
 
-Returns: `Record<IDXSchemaName, Schema>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **signedDefinitions**
-Returns a record of signed definitions, keyed by IDX definition [alias]():
-
-Returns: `Record<IDXDefinitionName, DagJWSResult>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
-
-### **signedSchemas**
-Returns a record of the signed schemas.
-
-Returns: `Record<IDXSchemaName, DagJWSResult>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
-</br>
-</br>
-</br>
+**Returns:** [`PublishedSchemas`](types.md#publishedschemas)

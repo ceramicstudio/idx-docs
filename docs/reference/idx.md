@@ -6,319 +6,141 @@
 npm install @ceramicstudio/idx
 ```
 
-See the full [installation guide]() to properly install the IDX SDK.
-
-## API
+## IDX class
 
 ### **constructor**
 
-Arguments:
+**Arguments:**
 
-- `options`: IDXOptions
-
-Returns: `Promise<void>`
-
-=== "Request"
-
-    ```javascript
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+1. [`options: IDXOptions`](types.md#idxoptions)
 
 ### **.authenticated**
 
-> Returns whether a [DID]() is currently [authenticated]().
+Returns whether a [DID](dependency-apis.md#did) is currently [authenticated]().
 
-Returns: `boolean`
-
-=== "Request"
-
-    ```javascript
-    await idx.authenticated()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `boolean`
 
 ### **.ceramic**
 
-Returns: `CeramicApi`
-
-=== "Request"
-
-    ```javascript
-    await idx.ceramic()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** [`CeramicApi`](dependency-apis.md#ceramicapi)
 
 ### **.id**
 
-> Returns the [DID]() of the currently authenticated user.
+Returns the [DID](dependency-apis.md#did) of the currently authenticated user.
 
-Accessing this property will throw an error if the instance is not authenticated.
+> Accessing this property will throw an error if the instance is not authenticated.
 
-Returns: `string`
-
-=== "Request"
-
-    ```javascript
-    await idx.id()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `string`
 
 ### **.has()**
 
-> Returns whether a [record]() exists in the [index]() for a given [DID]().
+Returns whether a [record](../learn/glossary.md#record) exists in the [index](../learn/glossary.md#index) for a given [DID](../learn/glossary.md#did).
 
-Arguments:
+**Arguments:**
 
-- `name`: string ([alias](), [IndexKey]() or [definitionID]())
-- `did?`: string = this.id
+1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
+1. `did?: string = this.id`
 
-Returns: `Promise<boolean>`
-
-=== "Request"
-
-    ```javascript
-    await idx.has()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `Promise<boolean>`
 
 ### **.get()**
 
-> Returns a [record]() in the [index]() for a given [DID]().
+Returns a [record](../learn/glossary.md#record) in the [index](../learn/glossary.md#index) for a given [DID](../learn/glossary.md#did).
 
-Arguments:
+**Arguments:**
 
-- `name`: string ([alias](), [IndexKey]() or [definitionID]())
-- `did?`: string = this.id
+1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
+1. `did?: string = this.id`
 
-Returns: `Promise<unknown>`
-
-=== "Request"
-
-    ```javascript
-    await idx.get()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `Promise<unknown>`
 
 ### **.set()**
 
-> Sets or modifies a [record]() in the [index]() of the authenticated [DID]().
+Sets or modifies a [record](../learn/glossary.md#record) in the [index](../learn/glossary.md#index) of the authenticated [DID](dependency-apis.md#did).
 
-Arguments:
+**Arguments:**
 
-- `name`: string ([alias](), [IndexKey]() or [definitionID]())
-- `content`: unknown
-- `options`?: CreateOptions (only applied if the document is being created, if it already exists they are ignored)
+1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
+1. `content: unknown`
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
 
-Returns: `Promise<DocID>` the [recordID]() of the created [record]()
-
-=== "Request"
-
-    ```javascript
-    await idx.set()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** [`Promise<DocID>`](dependency-apis.md#docid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
 
 ### **.merge()**
 
-> Performs a shallow (one level) merge to a [record]() in the [index]() of the authenticated [DID]().
+Performs a shallow (one level) merge to a [record](../learn/glossary.md#record) in the [index](../learn/glossary.md#index) of the authenticated [DID](dependency-apis.md#did).
 
-The provided options are only applied if the document is being created. If it already exists, they are ignored.
+**Arguments:**
 
-Arguments:
+1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
+1. `content: unknown`
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
 
-- `name`: string ([alias](), [IndexKey]() or [definitionID]())
-- `content`: unknown
-- `options?`: CreateOptions
-
-Returns: `Promise<DocID>` the [recordID]() of the created [record]()
-
-=== "Request"
-
-    ```javascript
-    await idx.merge()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** [`Promise<DocID>`](dependency-apis.md#docid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
 
 ### **.setAll()**
 
-> Similar to the [`.set`](#set) method but for setting multiple [records]() at once in a more efficient way.
+Similar to the [`.set()`](#set) method but for setting multiple [records](../learn/glossary.md#record) at once in a more efficient way.
 
-The index will only get updated if all records are successfully set.
+> The index will only get updated if all records are successfully set.
 
-Arguments:
+**Arguments:**
 
-- `contents`: Record<string, unknown>
-- `options?`: CreateOptions
+1. `contents: Record<string, unknown>`
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
 
-=== "Request"
-
-    ```javascript
-    await idx.setAll()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `Promise<Record<string, string>>` the [recordIDs](../learn/glossary.md#recordid) of the created [records](../learn/glossary.md#record)
 
 ### **.setDefaults()**
 
-> Similar to the [`.setAll`](#setall) method but only sets [records]() for keys that are not already present in the [index]().
+Similar to the [`.setAll()`](#setall) method but only sets [records](../learn/glossary.md#record) for keys that are not already present in the [index](../learn/glossary.md#index).
 
-Arguments:
+1. `contents: Record<string, unknown>`
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
 
-- `contents`: Record<string, unknown>
-- `options?`: CreateOptions
-
-=== "Request"
-
-    ```javascript
-    await idx.setDefaults()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** `Promise<Record<string, string>>` the [recordIDs](../learn/glossary.md#recordid) of the created [records](../learn/glossary.md#record)
 
 ### **.remove()**
 
-> Remove a [definition]():[record]() pair from the [index]() of the authenticated [DID]().
+Removes a [definitionID](../learn/glossary.md#definitionid):[recordID](../learn/glossary.md#recordid) pair from the [index](../learn/glossary.md#index) of the authenticated [DID](dependency-apis.md#did).
 
-Arguments:
+**Arguments:**
 
-- `name`: string ([alias](), [IndexKey]() or [definitionID]())
+1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
 
-Returns: `Promise<void>`
+**Returns:** `Promise<void>`
 
-=== "Request"
+### **.getIndex()**
 
-    ```javascript
-    await idx.remove()
-    ```
+Returns the [index](../learn/glossary.md#index) for the given [DID](../learn/glossary.md#did).
 
-=== "Response"
+> This method can be used to get the full definitionID:recordID mapping at once
 
-    ```javascript
-    ```
+**Arguments:**
 
----
+1. `did?: string = this.id`
 
-### **.getIndex()** (fka .getIDXContent)
-
-> Returns the [index]() for the given [DID]().
-
-Arguments:
-
-- `did?`: string = this.id
-
-Returns: `Promise<IdentityIndexContent | null>`
-
-=== "Request"
-
-    ```javascript
-    await idx.getIDXContent()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** [`Promise<Index | null>`](types.md#index)
 
 ### **.iterator()**
 
-> Returns an async iterator of ContentEntry for the given DID
+Returns an async iterator of [`Entry`](types.md#entry) for the given [DID](../learn/glossary.md#did).
 
-Arguments:
+> This method can be used to iteratively load all the records in the index
 
-- `did?`: string = this.id
+**Arguments:**
+å
 
-Returns: `AsyncIterableIterator<ContentEntry>`
+1. `did?: string = this.id`
 
-=== "Request"
-
-    ```javascript
-    await idx.contentIterator()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
-
----
+**Returns:** [`AsyncIterableIterator<Entry>`](types.md#entry)
 
 ### **.getDefinition()**
 
-> Loads a [definition]().
+Loads a [definition](../learn/glossary.md#index).
 
-Arguments:
+**Arguments**:
 
-- `id`: string (DocID or IndexKey)
+1. `id: DocID | IndexKey` ([DocID](dependency-apis.md#docid) or [IndexKey](types.md#indexkey))
 
-Returns: `Promise<Definition>`
-
-=== "Request"
-
-    ```javascript
-    await idx.getDefinition()
-    ```
-
-=== "Response"
-
-    ```javascript
-    ```
+**Returns:** [`Promise<DefinitionWithID>`](types.md#definitionwithid)

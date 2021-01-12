@@ -6,9 +6,9 @@ IDX is an identity protocol for open applications. It provides a decentralized [
 
 ## **Components**
 
-=== "Index"
+### Index
 
-The [index]() is a K-V document which stores a list of [definitionID]() to [recordID]() mappings.
+The [index]() is a key-value document which stores a list of [definitionID]() to [recordID]() mappings.
 
 ```json
 {
@@ -19,7 +19,7 @@ The [index]() is a K-V document which stores a list of [definitionID]() to [reco
 }
 ```
 
-=== "Definition"
+### Definition
 
 A [definition]() is a document which describes a [record](). It is identified by a [definitionID]().
 
@@ -31,7 +31,7 @@ A [definition]() is a document which describes a [record](). It is identified by
 }
 ```
 
-=== "Schema"
+### Schema
 
 A [schema]() is a document which contains a JSON schema. It specifies the data format of a [record](). It is identified by a [schemaURL]() which is included in a [definition]().
 
@@ -149,7 +149,7 @@ A [schema]() is a document which contains a JSON schema. It specifies the data f
 }
 ```
 
-=== "Record"
+### Record
 
 A [record]() is a document which contains data specified by a definition. It is identified by a [recordID]().
 
@@ -164,21 +164,21 @@ A [record]() is a document which contains data specified by a definition. It is 
 
 ## **How it works**
 
-=== "Writing records"
+### Writing records
 
 1. Developer creates a [schema](../glossary/#schema).
-2. Developer creates a [definition](../glossary/#definition) and includes the [schemaURL](../glossary/#schemaurl).
-3. User creates a [record](../glossary/#record) that conforms to the definition.
-4. User adds the [definitionID](../glossary/#definitionid) and [recordID](../glossary/#rrecordid) to their [index](../glossary/#index).
+1. Developer creates a [definition](../glossary/#definition) and includes the [schemaURL](../glossary/#schemaurl).
+1. User creates a [record](../glossary/#record) that conforms to the definition.
+1. User adds the [definitionID](../glossary/#definitionid) and [recordID](../glossary/#rrecordid) to their [index](../glossary/#index).
 
 > Learn more about [writing records]().
 
 ![](../images/idx-explanation.png)
 
-=== "Reading records"
+### Reading records
 
 1. Developer queries an [index](../glossary/#index) using a [DID](../glossary/#did) and a [definitionID](glossary.md/#definitionid) or [alias](../glossary/#alias).
-2. Developer gets back the [record](../glossary/#record) that corresponds to the definitionID.
+1. Developer gets back the [record](../glossary/#record) that corresponds to the definitionID.
 
 > Learn more about [reading records]().
 
