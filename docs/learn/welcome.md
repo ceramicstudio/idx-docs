@@ -17,16 +17,16 @@ Whether you're developing a fully-featured application that gives users control 
 
 ## Learn the basics
 
-[Overview](overview.md){: .md-button } [Glossary](../build/installation.md){: .md-button }
+[Overview](overview.md){: .md-button } [Glossary](glossary.md){: .md-button }
 
 ## Development Tools
 
-[JS SDK](../build/installation.md){: .md-button } [CLI](../build/installation.md){: .md-button } [API Reference](../build/installation.md){: .md-button }
+[JS SDK](../reference/idx.md){: .md-button } [CLI](../reference/cli.md){: .md-button }
 
 ## Resources
 
-[:material-forum: Developer chat](../build/installation.md){: .md-button } [:octicons-octoface-16: Github](../build/installation.md){: .md-button } [:material-twitter: Twitter](../build/installation.md){: .md-button }
+[:material-forum: Developer chat](https://chat.idx.xyz){: .md-button } [:octicons-octoface-16: Github](https://github.com/ceramicstudio/js-idx){: .md-button } [:material-twitter: Twitter](https://twitter.com/identityindex){: .md-button }
 
 ## License
 
-IDX is fully open source and dual-licensed under [MIT]() and [Apache 2]().
+IDX is fully open source and dual-licensed under [MIT](https://github.com/ceramicstudio/js-idx/blob/master/LICENSE-MIT) and [Apache 2](https://github.com/ceramicstudio/js-idx/blob/master/LICENSE-APACHE).

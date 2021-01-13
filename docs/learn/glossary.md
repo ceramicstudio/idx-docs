@@ -10,14 +10,14 @@ The index is a key-value store document that stores a list of [definitionID](#de
 
 === "Example index"
 
-```json
-{
-  "kyz123...456": "kyz789...678",
-  "kyz123...456": "kyz789...678",
-  "kyz123...456": "kyz789...678",
-  "kyz123...456": "kyz789...678"
-}
-```
+    ```json
+    {
+      "kyz123...456": "kyz789...678",
+      "kyz123...456": "kyz789...678",
+      "kyz123...456": "kyz789...678",
+      "kyz123...456": "kyz789...678"
+    }
+    ```
 
 ### **Definition**
 
@@ -25,133 +25,133 @@ A definition is a document which describes a [record](#record) and its [definiti
 
 === "Example definition"
 
-```js
-{
-  name: 'Basic Profile',
-  description: 'A simple basic profile.',
-  schema: 'kyz...'
-}
-```
+    ```js
+    {
+      name: 'Basic Profile',
+      description: 'A simple basic profile.',
+      schema: 'kyz...'
+    }
+    ```
 
 ### **Schema**
 
-A schema is a document that contain a [JSON schema](). The [schemaURL]() of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
+A schema is a document that contain a [JSON schema](https://json-schema.org/). The [schemaURL](#schemaurl) of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
 
 === "Example schema"
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "BasicProfile",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "maxLength": 150
-    },
-    "image": {
-      "$ref": "#/definitions/imageSources"
-    },
-    "description": {
-      "type": "string",
-      "maxLength": 420
-    },
-    "emoji": {
-      "type": "string",
-      "maxLength": 2
-    },
-    "background": {
-      "$ref": "#/definitions/imageSources"
-    },
-    "birthDate": {
-      "type": "string",
-      "format": "date",
-      "maxLength": 10
-    },
-    "url": {
-      "type": "string",
-      "maxLength": 240
-    },
-    "gender": {
-      "type": "string",
-      "maxLength": 42
-    },
-    "homeLocation": {
-      "type": "string",
-      "maxLength": 140
-    },
-    "residenceCountry": {
-      "type": "string",
-      "pattern": "^[A-Z]{2}$",
-      "maxLength": 2
-    },
-    "nationalities": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "string",
-        "pattern": "^[A-Z]{2}$",
-        "maxItems": 5
-      }
-    },
-    "affiliations": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "maxLength": 140
-      }
-    }
-  },
-  "definitions": {
-    "IPFSUrl": {
-      "type": "string",
-      "pattern": "^ipfs://.+",
-      "maxLength": 150
-    },
-    "positiveInteger": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "imageMetadata": {
+    ```json
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "BasicProfile",
       "type": "object",
       "properties": {
-        "src": {
-          "$ref": "#/definitions/IPFSUrl"
-        },
-        "mimeType": {
+        "name": {
           "type": "string",
-          "maxLength": 50
+          "maxLength": 150
         },
-        "width": {
-          "$ref": "#/definitions/positiveInteger"
+        "image": {
+          "$ref": "#/definitions/imageSources"
         },
-        "height": {
-          "$ref": "#/definitions/positiveInteger"
+        "description": {
+          "type": "string",
+          "maxLength": 420
         },
-        "size": {
-          "$ref": "#/definitions/positiveInteger"
-        }
-      },
-      "required": ["src", "mimeType", "width", "height"]
-    },
-    "imageSources": {
-      "type": "object",
-      "properties": {
-        "original": {
-          "$ref": "#/definitions/imageMetadata"
+        "emoji": {
+          "type": "string",
+          "maxLength": 2
         },
-        "alternatives": {
+        "background": {
+          "$ref": "#/definitions/imageSources"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "maxLength": 10
+        },
+        "url": {
+          "type": "string",
+          "maxLength": 240
+        },
+        "gender": {
+          "type": "string",
+          "maxLength": 42
+        },
+        "homeLocation": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "residenceCountry": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "maxLength": 2
+        },
+        "nationalities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "maxItems": 5
+          }
+        },
+        "affiliations": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/imageMetadata"
+            "type": "string",
+            "maxLength": 140
           }
         }
       },
-      "required": ["original"]
+      "definitions": {
+        "IPFSUrl": {
+          "type": "string",
+          "pattern": "^ipfs://.+",
+          "maxLength": 150
+        },
+        "positiveInteger": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "imageMetadata": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "$ref": "#/definitions/IPFSUrl"
+            },
+            "mimeType": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "width": {
+              "$ref": "#/definitions/positiveInteger"
+            },
+            "height": {
+              "$ref": "#/definitions/positiveInteger"
+            },
+            "size": {
+              "$ref": "#/definitions/positiveInteger"
+            }
+          },
+          "required": ["src", "mimeType", "width", "height"]
+        },
+        "imageSources": {
+          "type": "object",
+          "properties": {
+            "original": {
+              "$ref": "#/definitions/imageMetadata"
+            },
+            "alternatives": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/imageMetadata"
+              }
+            }
+          },
+          "required": ["original"]
+        }
+      }
     }
-  }
-}
-```
+    ```
 
 ### **Record**
 
@@ -163,13 +163,13 @@ Records can be used to directly store content. Typically, they are used to manag
 
 === "Example storage record"
 
-```js
-{
-  name: 'Alan Turing',
-  description: 'I make computers beep good.',
-  emoji: '💻'
-}
-```
+    ```js
+    {
+      name: 'Alan Turing',
+      description: 'I make computers beep good.',
+      emoji: '💻'
+    }
+    ```
 
 #### References
 
@@ -177,11 +177,11 @@ Records can be used to store references to [external datastores](). Typically th
 
 === "Example reference record"
 
-```js
-{
-  references: ['kyz123...456', 'kyz789...987', 'kyz654...321']
-}
-```
+    ```js
+    {
+      references: ['kyz123...456', 'kyz789...987', 'kyz654...321']
+    }
+    ```
 
 ## Related terms
 
@@ -193,12 +193,12 @@ An alias is an application-level construct that makes it easy to reference and i
 
 === "Example aliases"
 
-```js
-const aliases = {
-  alias1: 'definitionID 1',
-  alias2: 'definitionID 2',
-}
-```
+    ```js
+    const aliases = {
+      alias1: 'definitionID 1',
+      alias2: 'definitionID 2',
+    }
+    ```
 
 ### **DID**
 
@@ -206,9 +206,9 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique 
 
 === "Example DID"
 
-```
-did:3:bafy124123123123123123123123123123
-```
+    ```
+    did:3:bafy124123123123123123123123123123
+    ```
 
 ### **Ceramic**
 
@@ -222,9 +222,9 @@ A document is a mutable datastore on [Ceramic](#ceramic) that contains verifiabl
 
 === "Example Document"
 
-```
+    ```
 
-```
+    ```
 
 ### **DocID**
 
@@ -232,9 +232,9 @@ A DocID is a unique, immutable identifier for a [document](#document) on [Cerami
 
 === "Example DocID"
 
-```
-kyz4bdj4r8dwb4khf9ep3b4wjrh84qbfbh3477wedoe9fn3fsz9mn
-```
+    ```
+    kyz4bdj4r8dwb4khf9ep3b4wjrh84qbfbh3477wedoe9fn3fsz9mn
+    ```
 
 ### **DefinitionID**
 

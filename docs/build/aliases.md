@@ -1,12 +1,12 @@
 # Adding aliases
 
-Add the [definitionIDs]() used by your application to the `aliases` object in your JavaScript file. This will allow you to [read records]() and [write records]() using human-readable [aliases]().
+Add the [definitionIDs](../learn/glossary.md#definitionid) used by your application to the `aliases` object in your JavaScript file. This will allow you to [read records](reading.md) and [write records](writing.md) using human-readable [aliases](../learn/glossary.md#alias).
 
 ## **Default aliases**
 
 IDX comes prepackaged with a set of default definitions and corresponding aliases that you can use within your project to read or write to records without any additional configuration or set up. These **do not** need to be added to your `alias` object and their aliases can be used automatically.
 
-To understand what's included, view [**default definitions**]().
+To understand what's included, view [**default definitions**](../guides/definitions/default.md).
 
 !!! example ""
 **Use case: Read or write to a universal user profile**
@@ -28,7 +28,7 @@ const aliases = {
 
 If you want to read or write to records that already exist and have been created by third-party applications, then you will need to reuse existing definitions and add them to your `aliases` object. Reusing definitions encourages cross-platform data interoperability by converging on definitions and schema standards specific to certain use cases. After discovering definitions, you will need to add them to your `aliases` object.
 
-There are various ways to discover definitions, see [**discovering definitions**]().
+There are various ways to discover definitions, see [**discovering definitions**](../guides/definitions/discovering.md).
 
 !!! example ""
 **Use case: Display blog posts created in another application**
@@ -39,4 +39,4 @@ For a simple demonstration, let's consider a use case where two different applic
 
 If you are not able to use default or existing definitions in your project, then you will need to create new definitions. Creating new definitions allows you to create and interact with records specifically suited to the needs of your application. After creating definitions, you will need to add them to your `aliases` object.
 
-For a step by step guide, see [**creating definitions**]().
+For a step by step guide, see [**creating definitions**](../guides/definitions/creating.md).

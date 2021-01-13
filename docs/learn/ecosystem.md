@@ -4,7 +4,7 @@ This page contains a list of projects built on IDX. This list is voluntary and l
 
 ### **Adding your project**
 
-To add your project to this list, [submit a pull request]().
+To add your project to this list, [edit this page and submit a pull request](https://github.com/ceramicstudio/idx-docs/edit/main/docs/learn/ecosystem.md).
 
 ### **All projects**
 

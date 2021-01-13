@@ -1,14 +1,14 @@
 # Authentication
 
-Authentication allows you to [write records]() or [read encrypted records](). If you only need to read plaintext records, then you **do not** need authentication.
+Authentication allows you to [write records](writing.md) or [read encrypted records](reading.md). If you only need to read plaintext records, then you **do not** need authentication.
 
 ## **How it works**
 
-IDX uses [DIDs]() for identifiers and authentication. Once a DID is authenticated using a [DID provider](), the authenticated DID provider needs to be set to the [Ceramic instance]() used by your project. This will allow the user to perform authenticated transactions on IDX using their DID such as [writing records]() and [reading enctypted records]().
+IDX uses [DIDs](../reference/dependency-apis.md#did) for identifiers and authentication. Once a DID is authenticated using a [DID provider](../reference/dependency-apis.md#didprovider), the authenticated DID provider needs to be set to the [Ceramic instance]() used by your project. This will allow the user to perform authenticated transactions on IDX using their DID such as [writing records](writing.md) and [reading enctypted records](reading.md).
 
 ## **Prerequisites**
 
-In order to add authentication, you must have [installed the IDX SDK]().
+In order to add authentication, you must have [installed the IDX SDK](../reference/idx.md).
 
 ## **Installation**
 

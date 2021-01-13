@@ -32,7 +32,7 @@ nav:
       - Overview: learn/overview.md
       - Glossary: learn/glossary.md
       - Packages: learn/packages.md
-      - Ecosystem: learn/license.md
+      - Ecosystem: learn/ecosystem.md
   - Build:
       - Quick Start: build/quick-start.md
       - Installation: build/installation.md
@@ -49,12 +49,12 @@ nav:
           - Creating definitions: guides/definitions/creating.md
       - Storage:
           - Ceramic storage: guides/storage/ceramic.md
-          - Textile storage: guides/storage/textile.md
+          # - Textile storage: guides/storage/textile.md
       - CLI:
           - Using the CLI: guides/cli.md
-      - Development:
-          - Server-side rendering: guides/advanced-development/server-side-rendering.md
-          - Bootstrap scripts: guides/advanced-development/bootstrap-script.md
+      # - Development:
+      #     - Server-side rendering: guides/advanced-development/server-side-rendering.md
+      #     - Bootstrap scripts: guides/advanced-development/bootstrap-script.md
   - Reference:
       - IDX SDK: reference/idx.md
       - IDX CLI: reference/cli.md
@@ -102,6 +102,12 @@ extra_css:
 
 plugins:
   - search
-  # - redirects:
-  #     redirect_maps:
-  #         'index.md': 'http://developers.ceramic.network'
+  - redirects:
+      redirect_maps:
+        '': 'learn/welcome.md'
+        'build': 'build/quick-start.md'
+        'learn': 'learn/welcome.md'
+        'guides': 'guides/definitions/default.md'
+        'guides/definitions': 'guides/definitions/default.md'
+        'guides/storage': 'guides/storage/ceramic.md'
+        'reference': 'reference/idx.md'

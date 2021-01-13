@@ -1,13 +1,13 @@
 # Installation
 
-Install the [IDX SDK](../../learn/packages/#idx-sdk) and set up your project.
+Install the [IDX SDK](../learn/packages/#idx-sdk) and set up your project.
 
 !!! warning ""
 :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
 ## **Installation**
 
-Install the [IDX SDK](../../learn/packages/#idx-sdk) and the [Ceramic HTTP client]() using npm.
+Install the [IDX SDK](../learn/packages/#idx-sdk) and the [Ceramic HTTP client]() using npm.
 
 ```bash
 npm install @ceramicnetwork/http-client @ceramicstudio/idx
@@ -17,7 +17,7 @@ npm install @ceramicnetwork/http-client @ceramicstudio/idx
 
 ### Import dependencies
 
-Import [Ceramic](../../learn/glossary/#ceramic) and IDX by adding these lines to a JavaScript file in your project.
+Import [Ceramic](../learn/glossary.md#ceramic) and IDX by adding these lines to a JavaScript file in your project.
 
 ```js
 import Ceramic from '@ceramicnetwork/http-client'
@@ -26,7 +26,7 @@ import { IDX } from '@ceramicstudio/idx'
 
 ### Set up aliases
 
-Add an `aliases` object to your JavaScript file. This object stores mappings from human-readable names to [definitions](), making it easier to reference definitions throughout your project using their [aliases]().
+Add an `aliases` object to your JavaScript file. This object stores mappings from human-readable names to [definitions](../learn/glossary.md#definition), making it easier to reference definitions throughout your project using their [aliases](../learn/glossary.md#alias).
 
 ```js
 const aliases = {
@@ -35,7 +35,7 @@ const aliases = {
 }
 ```
 
-> Visit [adding aliases]() to learn how to add definitions to this list.
+> Visit [adding aliases](aliases.md) to learn how to add definitions to this list.
 
 ### Create instances
 
