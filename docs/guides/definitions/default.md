@@ -3,7 +3,8 @@
 Default definitions are [definitions](../../learn/glossary.md#definition) included in IDX libraries by default. Their [aliases](../../learn/glossary.md#alias) can automatically be used to [read records](../../build/reading.md) and [write records](../../build/writing.md) without any additional configuration.
 
 !!! example ""
-You **do not** need to add default definitions to your project's `aliases` object.
+
+    You **do not** need to add default definitions to your project's `aliases` object.
 
 ## **Basic Profile**
 
@@ -150,7 +151,7 @@ The basic profile definition specifies a [record](../../learn/glossary.md#record
 <!--
 ## **Also Known As**
 
-The Also Known As defintion specifies a [record]() which stores a list of third-party identities that belong to a DID. It is commonly used to store verified social accounts such as Twitter, Github, and Discord. It can also be used to store links to domain names and other public, non-cryptographic identifiers. Interact with this record using the `aka` alias.
+The Also Known As defintion specifies a [record](../../learn/glossary.md#record) which stores a list of third-party identities that belong to a DID. It is commonly used to store verified social accounts such as Twitter, Github, and Discord. It can also be used to store links to domain names and other public, non-cryptographic identifiers. Interact with this record using the `aka` alias.
 
 === "Definition"
 
@@ -310,7 +311,7 @@ The 3ID keychain definition specifies a [record](../../learn/glossary.md#record)
 
     **Adding new defaults**
 
-    If you would like to add a new default definition to this list, submit a pull request to [`idx-constants`]() on Github. For your pull request to be accepted:
+    If you would like to add a new default definition to this list, submit a pull request to [`idx-constants`](https://github.com/ceramicstudio/js-idx-constants) on Github. For your pull request to be accepted:
 
     - The definition must be captured by a [CIP (Ceramic improvement proposal)](https://github.com/ceramicnetwork/CIP)
     - The schema used in the definition must be captured by a CIP

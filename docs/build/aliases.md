@@ -9,7 +9,8 @@ IDX comes prepackaged with a set of default definitions and corresponding aliase
 To understand what's included, view [**default definitions**](../guides/definitions/default.md).
 
 !!! example ""
-**Use case: Read or write to a universal user profile**
+
+    **Use case: Read or write to a universal user profile**
 
 IDX includes a `basicProfile` alias that allows you to read or write to a basic user profile without needing to worry about definitions or aliases.
 
@@ -31,7 +32,8 @@ If you want to read or write to records that already exist and have been created
 There are various ways to discover definitions, see [**discovering definitions**](../guides/definitions/discovering.md).
 
 !!! example ""
-**Use case: Display blog posts created in another application**
+
+    **Use case: Display blog posts created in another application**
 
 For a simple demonstration, let's consider a use case where two different applications want to display the blog posts created by a user. Both applications would need to read the same definition that contains the list of the user's blog posts.
 

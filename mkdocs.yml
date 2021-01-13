@@ -3,7 +3,7 @@ site_url: https://docs.idx.xyz
 site_description: Documentation for IDX
 repo_url: https://github.com/ceramicstudio/js-idx
 repo_name: ceramicstudio/js-idx
-edit_uri: https://github.com/ceramicstudio/idx-docs/blob/main/docs/
+edit_uri: https://github.com/ceramicstudio/idx-docs/edit/main/docs/
 
 # Copyright
 copyright: 'IDX is open sourced under MIT and Apache 2'
@@ -105,10 +105,4 @@ plugins:
   - search
   - redirects:
       redirect_maps:
-        '': 'learn/welcome.md'
-        'build': 'build/quick-start.md'
-        'learn': 'learn/welcome.md'
-        'guides': 'guides/definitions/default.md'
-        'guides/definitions': 'guides/definitions/default.md'
-        'guides/storage': 'guides/storage/ceramic.md'
-        'reference': 'reference/idx.md'
+        'index.md': 'learn/welcome.md'

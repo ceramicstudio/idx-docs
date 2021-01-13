@@ -16,7 +16,7 @@ npm install @ceramicstudio/idx
 
 ### **.authenticated**
 
-Returns whether a [DID](dependency-apis.md#did) is currently [authenticated]().
+Returns whether a [DID](dependency-apis.md#did) is currently [authenticated](../build/authentication.md).
 
 **Returns:** `boolean`
 

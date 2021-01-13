@@ -125,7 +125,7 @@ interface IDXOptions {
 
 ### **CreateOptions**
 
-Options used by the [`.set`]() method of the IDX class.
+Options used by the [`.set`](idx.md#set) method of the IDX class.
 
 ```ts
 interface CreateOptions {

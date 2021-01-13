@@ -3,7 +3,8 @@
 Get started exploring what's possible with IDX using the [IDX CLI](../reference/cli.md). For runtime usage in your project, you will need to [install the IDX SDK](../reference/idx.md).
 
 !!! warning ""
-:octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
 ## **Prerequisites**
 
@@ -11,7 +12,7 @@ The IDX CLI requires [Node.js](https://nodejs.org/en/) and npm (usually installe
 
 ## **Step 1: Install IDX CLI**
 
-Open your terminal and install the [IDX CLI](../reference/cli.md) and [Ceramic CLI]().
+Open your terminal and install the [IDX CLI](../reference/cli.md) and [Ceramic CLI](https://developers.ceramic.network/build/quick-start/#install-the-cli).
 
 ```bash
 npm install -g @ceramicnetwork/ceramic-cli @ceramicstudio/idx-cli
@@ -46,7 +47,7 @@ Let's query an [index](../learn/glossary.md#index) for a [record](../learn/gloss
     ```
 
 !!! warning ""
-Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions]() were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
+Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
 
 ```bash
 idx index:get <did:3:bafy...123> <DocID of basic profile definition>
@@ -108,7 +109,7 @@ Use the `idx index:get` command to query the basic profile record.
 
 ## **Doing more**
 
-Run the `--h` command to list all commands available in the IDX CLI. All the commands provided by the IDX CLI can also be found in the [CLI documentation]().
+Run the `--h` command to list all commands available in the IDX CLI. All the commands provided by the IDX CLI can also be found in the [CLI documentation](https://github.com/ceramicstudio/idx-cli#idx-cli).
 
 ```bash
 idx --help

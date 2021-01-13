@@ -171,16 +171,16 @@ A [record](glossary.md#record) is a document which contains data specified by a 
 1. User creates a [record](#record) that conforms to the definition.
 1. User adds the [definitionID](glossary.md#definitionid) and [recordID](glossary.md#recordid) to their [index](#index).
 
-> Learn more about [writing records]().
+> Learn more about [writing records](../build/writing.md).
 
 ![](../images/idx-explanation.png)
 
 ### Reading records
 
-1. Developer queries an [index](#index) using a [DID](glossary.md#did) and a [definitionID](glossary.md/#definitionid) or [alias](glossary.md#alias).
+1. Developer queries an [index](#index) using a [DID](glossary.md#did) and a [definitionID](glossary.md#definitionid) or [alias](glossary.md#alias).
 1. Developer gets back the [record](#record) that corresponds to the definitionID.
 
-> Learn more about [reading records]().
+> Learn more about [reading records](../build/reading.md).
 
 ![](../images/idx-explanation.png)
 

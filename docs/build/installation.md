@@ -3,11 +3,12 @@
 Install the [IDX SDK](../learn/packages/#idx-sdk) and set up your project.
 
 !!! warning ""
-:octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
 ## **Installation**
 
-Install the [IDX SDK](../learn/packages/#idx-sdk) and the [Ceramic HTTP client]() using npm.
+Install the [IDX SDK](../learn/packages/#idx-sdk) and the [Ceramic HTTP client](https://developers.ceramic.network/reference/javascript/clients/#http-client) using npm.
 
 ```bash
 npm install @ceramicnetwork/http-client @ceramicstudio/idx
@@ -50,13 +51,11 @@ const idx = new IDX({ ceramic, aliases })
 
 Set the HTTP URL of the Ceramic node you are using in your project to your `ceramic` instance above. Ceramic node options:
 
-- [Run a Ceramic node :octicons-link-external-16:]() for your project
+- Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
 
-- Use the [Ceramic community gateway]() for **read-only access** to IDX by setting this to `https://ceramic.3boxlabs.com`
+- Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
 
-- Use a [hosted Ceramic node :octicons-link-external-16:]() including dev nodes and paid providers
-
-- Connect to a local node by setting this to `https://localhost:7007`
+- LocalHost `https://localhost:7007`: Provides write and read access to the Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
 
 ## **Example**
 

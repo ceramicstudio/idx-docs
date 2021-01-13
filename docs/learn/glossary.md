@@ -173,7 +173,7 @@ Records can be used to directly store content. Typically, they are used to manag
 
 #### References
 
-Records can be used to store references to [external datastores](). Typically these records contain one or more links to a collection of similar files or datastores, such as a list of blog posts or a list of tweets, acting as an entry point to the collection.
+Records can be used to store references to [external datastores](#external-datastores). Typically these records contain one or more links to a collection of similar files or datastores, such as a list of blog posts or a list of tweets, acting as an entry point to the collection.
 
 === "Example reference record"
 
@@ -202,7 +202,7 @@ An alias is an application-level construct that makes it easy to reference and i
 
 ### **DID**
 
-DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation]().
+DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation](https://developers.ceramic.network).
 
 === "Example DID"
 
@@ -214,7 +214,7 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique 
 
 Ceramic is a decentralized content management network for mutable documents. IDX uses Ceramic to store and query IDX documents including [indexes](#index), [definitions](#definition), [schemas](#schema), and [records](#record).
 
-> Learn more about [Ceramic network]().
+> Learn more about [Ceramic network](https://developers.ceramic.network).
 
 ### **Document**
 
@@ -250,7 +250,7 @@ A schemaID is a [docID](#docid) of a [schema](#schema).
 
 ### **SchemaURL**
 
-A schemaURL is a [Ceramic]() URL for a [schema](#schema).
+A schemaURL is a [Ceramic](#ceramic) URL for a [schema](#schema).
 
 ### **RecordID**
 

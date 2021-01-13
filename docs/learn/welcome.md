@@ -1,7 +1,8 @@
 ![banner](../images/idx-left-2.png)
 
 !!! warning ""
-:octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change.
+
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change.
 
 # Identity protocol for open applications
 
