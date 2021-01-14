@@ -4,7 +4,7 @@ Get started exploring what's possible with IDX using the [IDX CLI](../reference/
 
 !!! warning ""
 
-    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
 ## **Prerequisites**
 
