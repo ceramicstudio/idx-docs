@@ -12,10 +12,10 @@ The index is a key-value store document that stores a list of [definitionID](#de
 
     ```json
     {
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678"
+      "kyz123...456": "ceramic://kyz789...012",
+      "kyz345...678": "ceramic://kyz901...234",
+      "kyz567...890": "ceramic://kyz123...456",
+      "kyz789...012": "ceramic://kyz345...678"
     }
     ```
 
@@ -29,7 +29,7 @@ A definition is a document which describes a [record](#record) and its [definiti
     {
       name: 'Basic Profile',
       description: 'A simple basic profile.',
-      schema: 'kyz...'
+      schema: 'ceramic://kyz...'
     }
     ```
 

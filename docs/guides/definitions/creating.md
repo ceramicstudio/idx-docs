@@ -8,7 +8,7 @@ Make sure you have [installed the CLI](../cli.md) and that the Ceramic daemon is
 
 ## **Step 1: Define your records**
 
-Consider your application's data model as a set of discrete [records](../../../learn/glossary.md#record). Each record should store a logical subset of information for your project.
+Consider your application's data model as a set of discrete [records](../../learn/glossary.md#record). Each record should store a logical subset of information for your project.
 
 ```
 DID -> Index -> Definition -> Record
@@ -23,7 +23,7 @@ For demonstration purposes, this guide will use the example of a simple note-tak
 
 !!! example ""
 
-    The individual notes objects can be stored in any [external datastore](../../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../../learn/glossary.md#document).
+    The individual notes objects can be stored in any [external datastore](../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../learn/glossary.md#document).
 
 ## **Step 2: Create your schemas**
 
