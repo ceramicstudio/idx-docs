@@ -17,9 +17,9 @@
 {% block extrahead %}
   {% set title = config.site_name %}
   {% if page and page.meta and page.meta.title %}
-    {% set title = title ~ " - " ~ page.meta.title %}
+    {% set title = page.meta.title ~ " | " ~ title %}
   {% elif page and page.title and not page.is_homepage %}
-    {% set title = title ~ " - " ~ page.title | striptags %}
+    {% set title = page.title | striptags ~ " | " ~ title %}
   {% endif %}
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ title }}" />

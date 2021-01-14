@@ -1,6 +1,6 @@
-site_name: IDX Documentation
-site_url: https://docs.idx.xyz
-site_description: Documentation for IDX
+site_name: IDX Developers
+site_url: https://developers.idx.xyz
+site_description: Specs, docs, guides, and APIs for the IDX protocol
 repo_url: https://github.com/ceramicstudio/js-idx
 repo_name: ceramicstudio/js-idx
 edit_uri: https://github.com/ceramicstudio/idx-docs/edit/main/docs/
