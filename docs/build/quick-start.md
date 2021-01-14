@@ -32,25 +32,27 @@ idx bootstrap
 
 ## **Step 2: Query a record**
 
-Let's query an [index](../learn/glossary.md#index) for a [record](../learn/glossary.md#record) that stores a [basic profile](../guides/definitions/default.md#basic-profile). Use the `idx index:get` command and the `basicProfile` [alias](../learn/glossary.md#alias). As you can see below, we are looking up the profile of user `did:3:bafy55555555555555555555555555555555123`.
+Let's query an [index](../learn/glossary.md#index) for a [record](../learn/glossary.md#record) that stores a [basic profile](../guides/definitions/default.md#basic-profile). Use the `idx index:get` command and the `basicProfile` [alias](../learn/glossary.md#alias). As you can see below, we are looking up the profile of user `did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei`.
 
 === "Command"
 
     ```bash
-    idx index:get <did:3:bafy...123> basicProfile
+    idx index:get did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei basicProfile
     ```
 
-=== "Result"
+=== "Output"
 
     ```bash
-    lorem ipsum
+    ✔ Contents successfully loaded
+    { name: 'Alan Turing' }
     ```
 
 !!! warning ""
-Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
+
+    Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
 
 ```bash
-idx index:get <did:3:bafy...123> <DocID of basic profile definition>
+idx index:get did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou
 ```
 
 ## **Step 3: Create a DID**
@@ -63,10 +65,10 @@ Use the `idx did:create` command to create a new DID enabled with IDX.
     idx did:create
     ```
 
-=== "Example result"
+=== "Output"
 
     ```bash
-    lorem ipsum
+    ✔ Created DID: did:key:z6MkuEd4fm7qNq8hkmWFM1NLVBAXa4t2GcNDdmVzBrRm2DNm
     ```
 
 Use the `idx did:list` command to get your DID from the node.
@@ -77,10 +79,14 @@ Use the `idx did:list` command to get your DID from the node.
     idx did:list
     ```
 
-=== "Example result"
+=== "Output"
 
     ```bash
-    lorem ipsum
+    ┌──────────────────────────────────────────────────────────┬────────────┬─────────────────────────────────────────────────────────┐
+    │ DID                                                      │ Label      │ Created                                                 │
+    ├──────────────────────────────────────────────────────────┼────────────┼─────────────────────────────────────────────────────────┤
+    │ did:key:z6MkuEd4fm7qNq8hkmWFM1NLVBAXa4t2GcNDdmVzBrRm2DNm │ (no label) │ Thu Jan 14 2021 11:51:07 GMT+0000 (Greenwich Mean Time) │
+    └──────────────────────────────────────────────────────────┴────────────┴─────────────────────────────────────────────────────────┘
     ```
 
 ## **Step 4: Create a record**
@@ -88,7 +94,7 @@ Use the `idx did:list` command to get your DID from the node.
 Use the `idx index:set` command to set data to a record for the currently authenticated DID. In this example we're passing the same `basicProfile` alias as above to specify that we want to save data to record corresponding to the default basic profile definition. The final part of this command is the actual contents we want to set to the record. These contents must conform to the schema specified in the definition. If not, the command will fail.
 
 ```bash
-idx index:set <did:3:myDID> basicProfile '{"name":"YourName"}'
+idx index:set <did:key:myDID> basicProfile '{"name":"YourName"}'
 ```
 
 ## **Step 5: Query your record**
@@ -98,10 +104,10 @@ Use the `idx index:get` command to query the basic profile record.
 === "Command"
 
     ```bash
-    idx index:get <did:3:myDID> basicProfile
+    idx index:get <did:key:myDID> basicProfile
     ```
 
-=== "Example result"
+=== "Output"
 
     ```
     The profile that you created in the previoius step

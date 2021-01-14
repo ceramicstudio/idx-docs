@@ -4,15 +4,11 @@ If you are not able to only utilize [default definitions](default.md) or [existi
 
 ## **Prerequisites**
 
-Make sure you have [installed the CLI](../../reference/cli.md) and that it is running properly. You can use the `command` command to test this. You should see this response:
-
-```bash
-
-```
+Make sure you have [installed the CLI](../cli.md) and that the Ceramic daemon is running properly or you're connecting to a node you can write to.
 
 ## **Step 1: Define your records**
 
-Consider your application's data model as a set of discrete [records](../../../learn/glossary/#record). Each record should store a logical subset of information for your project.
+Consider your application's data model as a set of discrete [records](../../../learn/glossary.md#record). Each record should store a logical subset of information for your project.
 
 ```
 DID -> Index -> Definition -> Record
@@ -27,7 +23,7 @@ For demonstration purposes, this guide will use the example of a simple note-tak
 
 !!! example ""
 
-    The individual notes objects can be stored in any [external datastore](../../../learn/glossary/#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../../learn/glossary/#document).
+    The individual notes objects can be stored in any [external datastore](../../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../../learn/glossary.md#document).
 
 ## **Step 2: Create your schemas**
 
@@ -171,7 +167,7 @@ Specify each schema in JSON schema format. Because we are using two records in t
 
     ```js
     {
-      $schema: '<http://json-schema.org/draft-07/schema#>',
+      $schema: 'http://json-schema.org/draft-07/schema',
       title: 'NotesList',
       type: 'object',
       properties: {
@@ -194,6 +190,14 @@ Specify each schema in JSON schema format. Because we are using two records in t
           },
         },
       },
+      required: ['notes'],
+      definitions: {
+        CeramicDocId: {
+          type: 'string',
+          pattern: '^ceramic://.+(\\?version=.+)?',
+          maxLength: 150,
+        },
+      },
     }
     ```
 
@@ -202,9 +206,9 @@ Specify each schema in JSON schema format. Because we are using two records in t
     ```js
     {
       notes: [
-        'kyz123...456',
-        'kyz123...456',
-        'kyz123...456'
+        {id: 'kyz123...123'},
+        {id: 'kyz123...456'},
+        {id: 'kyz123...789'},
       ]
     }
     ```
@@ -214,20 +218,20 @@ Specify each schema in JSON schema format. Because we are using two records in t
 Use the `schema:publish` command on the IDX CLI to publish each of your schemas. You will need to do this for each of your two schemas above.
 
 ```bash
-idx schema:publish 'your schema'
+idx schema:publish <DID> 'your schema'
 ```
 
-=== "Example command"
+=== "Command"
 
-```bash
-idx schema:publish 'schema content content content content content content content content'
-```
+    ```bash
+    idx schema:publish did:key:z6MkuEd4fm7qNq8hkmWFM1NLVBAXa4t2GcNDdmVzBrRm2DNm '{"$schema":"http://json-schema.org/draft-07/schema","title":"NotesList","type":"object","properties":{"notes":{"type":"array","title":"notes","items":{"type":"object","title":"NoteItem","properties":{"id":{"$ref":"#/definitions/CeramicDocId"},"title":{"type":"string","title":"title","maxLength":100}}}}},"required":["notes"],"definitions":{"CeramicDocId":{"type":"string","pattern":"^ceramic://.+(\\\\?version=.+)?","maxLength":150}}}'
+    ```
 
-=== "Example response"
+=== "Output"
 
-```bash
-ceramic://k3y52l7qbv1fryd65pd3dyu9dim46vx39z4bgzrrligbi5sfd0e3mwump2p6pdn9c
-```
+    ```bash
+    ✔ Schema published with URL: ceramic://k3y52l7qbv1frxrczisvgwekml7jrdiriv60qrbm80r3uabcl7dqva1rq5rk6b94w
+    ```
 
 ## **Step 3: Create your definitions**
 
@@ -240,19 +244,23 @@ Because we are using two records in our example, we will need to create two defi
 #### `basicProfile` definition
 
 ```js
-'name': 'Profile'
-'description': 'A basic user profile'    // optional
-'schema': '<schema URL from previous command>'
-'config': { }   //optional
+{
+  name: 'Profile',
+  description: 'A basic user profile', // optional
+  schema: '<schema URL from previous command>',
+  config: {}, //optional
+}
 ```
 
 #### `notesList` definition
 
 ```js
-'name': 'Notes'
-'description': 'A list of notes'    // optional
-'schema': '<schema URL from previous command>'
-'config': { }   //optional
+{
+  name: 'Notes',
+  description: 'A list of notes', // optional
+  schema: '<schema URL from previous command>',
+  config: {} //optional
+}
 ```
 
 ### Publish your definitions
@@ -260,19 +268,19 @@ Because we are using two records in our example, we will need to create two defi
 Use the `definition:create` command on the IDX CLI to publish each of your definitions.
 
 ```bash
-idx definition:create --schema=<schema URL from previous command> --name="definition name" --description="definition description"
+idx definition:create <DID> --schema=<schema URL from previous command> --name="definition name" --description="definition description"
 ```
 
 === "Example command"
 
     ```bash
-    idx definition:create 'schema content content content content content content content content'
+    idx definition:create did:key:z6MkuEd4fm7qNq8hkmWFM1NLVBAXa4t2GcNDdmVzBrRm2DNm --schema='ceramic://k3y52l7qbv1frxrczisvgwekml7jrdiriv60qrbm80r3uabcl7dqva1rq5rk6b94w' --name="Notes list" --description="A list of notes"
     ```
 
 === "Example response"
 
     ```bash
-    k3y52l7qbv1fryd65pd3dyu9dim46vx39z4bgzrrligbi5sfd0e3mwump2p6pdn9c
+    ✔ Definition successfully created: kjzl6cwe1jw149hunt8wb296aprqjjja96q5etjs2oh97s0t9eku9fuz5or3w1z
     ```
 
 ## **Step 4: Add to your project**
@@ -281,7 +289,8 @@ Add the [definitionIDs](../../learn/glossary.md#definitionid) of the definitions
 
 ```js
 const aliases = {
-	basicProfile: 'k3y52l7qbv1fryd65pd3dyu9dim46vx39z4bgzrrligbi5sfd0e3mwump2p6pdn9c'
-	notesList: 'k3y52l7qbv1fryd65pd3dyu9dim46vx39z4bgzrrligbi5sfd0e3mwump2p6pdn9c'
+  basicProfile:
+    'kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou',
+  notesList: 'kjzl6cwe1jw149hunt8wb296aprqjjja96q5etjs2oh97s0t9eku9fuz5or3w1z',
 }
 ```

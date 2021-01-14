@@ -10,157 +10,156 @@ IDX is an identity protocol for open applications. It provides a decentralized [
 
 The [index](glossary.md#index) is a key-value document which stores a list of [definitionID](glossary.md#definitionid) to [recordID](glossary.md#recordid) mappings.
 
-    ```json
-    {
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678",
-      "kyz123...456": "kyz789...678"
-    }
-    ```
+```json
+{
+  "kyz123...456": "ceramic://kyz789...012",
+  "kyz345...678": "ceramic://kyz901...234",
+  "kyz567...890": "ceramic://kyz123...456",
+  "kyz789...012": "ceramic://kyz345...678"
+}
+```
 
 ### Definition
 
 A [definition](glossary.md#definition) is a document which describes a [record](#record). It is identified by a [definitionID](glossary.md#definitionid).
 
-    ```js
-    {
-      name: 'Basic Profile',
-      description: 'A simple basic profile.',
-      schema: 'kyz...'
-    }
-    ```
+```js
+{
+  name: 'Basic Profile',
+  description: 'A simple basic profile.',
+  schema: 'kyz...'
+}
+```
 
 ### Schema
 
 A [schema](glossary.md#schema) is a document which contains a [JSON schema](https://json-schema.org/). It specifies the data format of a [record](#record). It is identified by a [schemaURL](glossary.md#schemaurl) which is included in a [definition](#definition).
 
-    ```json
-    {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "BasicProfile",
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BasicProfile",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "image": {
+      "$ref": "#/definitions/imageSources"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 420
+    },
+    "emoji": {
+      "type": "string",
+      "maxLength": 2
+    },
+    "background": {
+      "$ref": "#/definitions/imageSources"
+    },
+    "birthDate": {
+      "type": "string",
+      "format": "date",
+      "maxLength": 10
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "gender": {
+      "type": "string",
+      "maxLength": 42
+    },
+    "homeLocation": {
+      "type": "string",
+      "maxLength": 140
+    },
+    "residenceCountry": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "maxLength": 2
+    },
+    "nationalities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}$",
+        "maxItems": 5
+      }
+    },
+    "affiliations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 140
+      }
+    }
+  },
+  "definitions": {
+    "IPFSUrl": {
+      "type": "string",
+      "pattern": "^ipfs://.+",
+      "maxLength": 150
+    },
+    "positiveInteger": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "imageMetadata": {
       "type": "object",
       "properties": {
-        "name": {
+        "src": {
+          "$ref": "#/definitions/IPFSUrl"
+        },
+        "mimeType": {
           "type": "string",
-          "maxLength": 150
+          "maxLength": 50
         },
-        "image": {
-          "$ref": "#/definitions/imageSources"
+        "width": {
+          "$ref": "#/definitions/positiveInteger"
         },
-        "description": {
-          "type": "string",
-          "maxLength": 420
+        "height": {
+          "$ref": "#/definitions/positiveInteger"
         },
-        "emoji": {
-          "type": "string",
-          "maxLength": 2
+        "size": {
+          "$ref": "#/definitions/positiveInteger"
+        }
+      },
+      "required": ["src", "mimeType", "width", "height"]
+    },
+    "imageSources": {
+      "type": "object",
+      "properties": {
+        "original": {
+          "$ref": "#/definitions/imageMetadata"
         },
-        "background": {
-          "$ref": "#/definitions/imageSources"
-        },
-        "birthDate": {
-          "type": "string",
-          "format": "date",
-          "maxLength": 10
-        },
-        "url": {
-          "type": "string",
-          "maxLength": 240
-        },
-        "gender": {
-          "type": "string",
-          "maxLength": 42
-        },
-        "homeLocation": {
-          "type": "string",
-          "maxLength": 140
-        },
-        "residenceCountry": {
-          "type": "string",
-          "pattern": "^[A-Z]{2}$",
-          "maxLength": 2
-        },
-        "nationalities": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "pattern": "^[A-Z]{2}$",
-            "maxItems": 5
-          }
-        },
-        "affiliations": {
+        "alternatives": {
           "type": "array",
           "items": {
-            "type": "string",
-            "maxLength": 140
+            "$ref": "#/definitions/imageMetadata"
           }
         }
       },
-      "definitions": {
-        "IPFSUrl": {
-          "type": "string",
-          "pattern": "^ipfs://.+",
-          "maxLength": 150
-        },
-        "positiveInteger": {
-          "type": "integer",
-          "minimum": 1
-        },
-        "imageMetadata": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/IPFSUrl"
-            },
-            "mimeType": {
-              "type": "string",
-              "maxLength": 50
-            },
-            "width": {
-              "$ref": "#/definitions/positiveInteger"
-            },
-            "height": {
-              "$ref": "#/definitions/positiveInteger"
-            },
-            "size": {
-              "$ref": "#/definitions/positiveInteger"
-            }
-          },
-          "required": ["src", "mimeType", "width", "height"]
-        },
-        "imageSources": {
-          "type": "object",
-          "properties": {
-            "original": {
-              "$ref": "#/definitions/imageMetadata"
-            },
-            "alternatives": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/imageMetadata"
-              }
-            }
-          },
-          "required": ["original"]
-        }
-      }
+      "required": ["original"]
     }
-    ```
+  }
+}
+```
 
 ### Record
 
 A [record](glossary.md#record) is a document which contains data specified by a definition. It is identified by a [recordID](glossary.md#recordid).
 
-    ```js
-    {
-      name: 'Alan Turing',
-      description: 'I make computers beep good.',
-      image: '',
-      emoji: '💻'
-    }
-    ```
+```js
+{
+  name: 'Alan Turing',
+  description: 'I make computers beep good.',
+  emoji: '💻'
+}
+```
 
 ## **How it works**
 
