@@ -209,6 +209,12 @@ The crypto accounts definition specifies a [record](../../learn/glossary.md#reco
 === "Example record"
 
     ```js
+    {
+        '0x123@eip155:1': 'ceramic://kjz123...456',            // Ethereum acct and proof     
+        '0x123@polkadot:b0a...70f': 'ceramic://kjz987...654',  // Polkadot acct and proof  
+        '0x123@fil:f': 'ceramic://kjz528...912',               // Filecoin acct and proof  
+        '0x134@cosmos:cosmoshub-2': 'ceramic://kjz382...565'   // Cosmos acct and proof  
+    }
     ```
 
 ## **3ID Keychain**
