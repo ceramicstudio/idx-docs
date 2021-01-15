@@ -20,7 +20,7 @@ Use the [IDX CLI](../../reference/cli.md) to inspect the [indexes](../../learn/g
 
 ### List all definitions
 
-Use the `idx index:inspect` command to view all definitions included in the index for a given DID:
+Use the `idx index:inspect` command to view all definitions for a given DID:
 
 ```bash
 idx index:inspect <UserDID>
@@ -140,7 +140,7 @@ idx definition:schema <SchemaDocID>
 
 ## **Inspecting repositories**
 
-Use Github or other code collaboration platforms to inspect the repositories of open source projects that use IDX. You will be looking for their JavaScript files which perform [`get`](../../reference/idx.md#get) and [`set`](../../reference/idx.md#set) calls on the IDX API. If they are using [aliases](../../learn/glossary.md#alias), you will see the [definitionIDs](../../learn/glossary.md#definitionid) in their `aliases` object. Otherwise, you will see definitionIDs directly in their calls.
+Use Github or other code collaboration platforms to inspect the repositories of open source projects that use IDX. To locate these projects, you can either view the [ecosystem page](../../learn/ecosystem.md) or lookup the Github topics for [#idx](https://github.com/topics/idx) and [#identityindex](https://github.com/topics/identityindex). Once you find a set of projects, you will be looking for their JavaScript files which perform [`get`](../../reference/idx.md#get) and [`set`](../../reference/idx.md#set) calls on the IDX API. If they are using [aliases](../../learn/glossary.md#alias), you will see the [definitionIDs](../../learn/glossary.md#definitionid) in their `aliases` object. Otherwise, you will see definitionIDs directly in their calls.
 
 After gathering a list of definitionIDs, follow the steps above to [view a definition](#view-a-definition) and [view a schema](#view-a-schema).
 

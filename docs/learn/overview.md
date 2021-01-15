@@ -27,7 +27,7 @@ A [definition](glossary.md#definition) is a document which describes a [record](
 {
   name: 'Basic Profile',
   description: 'A simple basic profile.',
-  schema: 'kyz...'
+  schema: 'ceramic://kyz123...456'
 }
 ```
 

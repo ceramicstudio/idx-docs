@@ -2,7 +2,7 @@
 
 Install the [IDX SDK](../learn/packages.md#idx-sdk) and set up your project.
 
-!!! warning ""
+!!! example ""
 
     :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
@@ -27,7 +27,7 @@ import { IDX } from '@ceramicstudio/idx'
 
 ### Set up aliases
 
-Add an `aliases` object to your JavaScript file. This object stores mappings from human-readable names to [definitions](../learn/glossary.md#definition), making it easier to reference definitions throughout your project using their [aliases](../learn/glossary.md#alias).
+Add an `aliases` object to your JavaScript file. This object stores mappings from human-readable [aliases](../learn/glossary.md#alias) to [definitionIDs](../learn/glossary.md#definitionid), making it easier to reference definitions throughout your project.
 
 ```js
 const aliases = {
@@ -51,11 +51,14 @@ const idx = new IDX({ ceramic, aliases })
 
 Set the HTTP URL of the Ceramic node you are using in your project to your `ceramic` instance above. Ceramic node options:
 
-- Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
+- Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Ceramic Clay testnet.
 
-- Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
+- Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Ceramic Clay testnet. This node is periodically wiped and does not guarantee document persistence.
 
-- LocalHost `https://localhost:7007`: Provides write and read access to the Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
+- Run your own node `https://yourEndpoint.com`: Provides write and read access to the Ceramic Clay testnet. Running your own node allows you to persist documents and have full control.
+
+- LocalHost `https://localhost:7007`: Provides write and read access to the Ceramic Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
+
 
 ## **Example**
 

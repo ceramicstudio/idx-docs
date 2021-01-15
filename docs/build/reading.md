@@ -7,7 +7,7 @@ Use the [`idx.get()`](../reference/idx.md#get) method to query a [record](../lea
 Pass an alias from [default definitions](../guides/definitions/default.md) and the DID that you wish to query.
 
 ```js
-await idx.get(`basicProfile`, '<DID>')
+await idx.get('basicProfile', '<DID>')
 ```
 
 [:octicons-file-code-16: API reference](../reference/idx.md#get)
@@ -17,7 +17,7 @@ await idx.get(`basicProfile`, '<DID>')
 Pass as alias from your `aliases` object and the DID that you wish to query.
 
 ```js
-await idx.get(`myAlias`, '<DID>')
+await idx.get('myAlias', '<DID>')
 ```
 
 [:octicons-file-code-16: API reference](../reference/idx.md#get)
@@ -27,7 +27,7 @@ await idx.get(`myAlias`, '<DID>')
 If a user is currently [authenticated](authentication.md) to your application, you only need to pass an alias. When no DID is provided, IDX will default to the DID of the currently authenticated user.
 
 ```js
-await idx.get(`myAlias`)
+await idx.get('myAlias')
 ```
 
 [:octicons-file-code-16: API reference](../reference/idx.md#get)
@@ -37,7 +37,7 @@ await idx.get(`myAlias`)
 === "Method call"
 
     ```js
-    await idx.get(`basicProfile`)
+    await idx.get('basicProfile')
     ```
 
 === "Returned value"

@@ -1,10 +1,10 @@
 # Creating definitions
 
-If you are not able to only utilize [default definitions](default.md) or [existing definitions](discovering.md), then you will need to create new definitions for your project. Custom definitions allow your application to [write records](../../build/writing.md) and [read records](../../build/reading.md) specifically suited to your use case.
+If you are not able to only use [default definitions](default.md) or [existing definitions](existing.md), then you will need to create new definitions for your project. Creating new definitions allows your application to [write records](../../build/writing.md) and [read records](../../build/reading.md) specifically suited to your use case.
 
 ## **Prerequisites**
 
-Make sure you have [installed the CLI](../cli.md) and that the Ceramic daemon is running properly or you're connecting to a node you can write to.
+Make sure you have [installed the IDX CLI](../cli.md) and that the Ceramic daemon is running properly. You need to be connected to a Ceramic node that you can write to.
 
 ## **Step 1: Define your records**
 
@@ -23,7 +23,7 @@ For demonstration purposes, this guide will use the example of a simple note-tak
 
 !!! example ""
 
-    The individual notes objects can be stored in any [external datastore](../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../learn/glossary.md#document).
+    The individual notes objects can be stored in any [external datastore](../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../learn/glossary.md#document). Writing these individual notes will need to be handled by the API of your datastore and is beyond the scope of IDX. An IDX record will just be used to maintain the user's list of notes.
 
 ## **Step 2: Create your schemas**
 
@@ -289,8 +289,7 @@ Add the [definitionIDs](../../learn/glossary.md#definitionid) of the definitions
 
 ```js
 const aliases = {
-  basicProfile:
-    'kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou',
+  basicProfile: 'kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou',
   notesList: 'kjzl6cwe1jw149hunt8wb296aprqjjja96q5etjs2oh97s0t9eku9fuz5or3w1z',
 }
 ```

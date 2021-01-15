@@ -1,6 +1,6 @@
 ![banner](../images/idx-left-2.png)
 
-!!! warning ""
+!!! example ""
 
     :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change.
 
@@ -22,7 +22,7 @@ Whether you're developing a fully-featured application that gives users control 
 
 ## Development Tools
 
-[JS SDK](../reference/idx.md){: .md-button } [CLI](../reference/cli.md){: .md-button }
+[JS SDK](packages.md#idx-sdk){: .md-button } [CLI](packages.md#idx-cli){: .md-button }
 
 ## Resources
 

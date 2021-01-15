@@ -4,15 +4,13 @@ Add the [definitionIDs](../learn/glossary.md#definitionid) used by your applicat
 
 ## **Default aliases**
 
-IDX comes prepackaged with a set of default definitions and corresponding aliases that you can use within your project to read or write to records without any additional configuration or set up. These **do not** need to be added to your `alias` object and their aliases can be used automatically.
+IDX comes prepackaged with a set of default definitions and corresponding aliases that you can use within your project to write or read records without any additional configuration or set up. These **do not** need to be added to your `alias` object and their aliases can be used automatically.
 
 To understand what's included, view [**default definitions**](../guides/definitions/default.md).
 
-!!! example ""
+!!! example "Use case: Read or write to a universal user profile"
 
-    **Use case: Read or write to a universal user profile**
-
-IDX includes a `basicProfile` alias that allows you to read or write to a basic user profile without needing to worry about definitions or aliases.
+    IDX includes a `basicProfile` alias that allows you to read or write to a basic user profile without needing to worry about definitions or aliases.
 
 ## **Custom aliases**
 
@@ -27,15 +25,13 @@ const aliases = {
 
 ### Using existing definitions
 
-If you want to read or write to records that already exist and have been created by third-party applications, then you will need to reuse existing definitions and add them to your `aliases` object. Reusing definitions encourages cross-platform data interoperability by converging on definitions and schema standards specific to certain use cases. After discovering definitions, you will need to add them to your `aliases` object.
+If you want to write or read records that already exist and have been created by third-party applications, then you will need to reuse existing definitions and add them to your `aliases` object. Reusing definitions encourages cross-platform data interoperability by converging on definitions and schema standards specific to certain use cases. After discovering these definitions, you will need to add them to your `aliases` object.
 
-There are various ways to discover definitions, see [**discovering definitions**](../guides/definitions/discovering.md).
+There are various ways to discover existing definitions, see [**existing definitions**](../guides/definitions/existing.md).
 
-!!! example ""
+!!! example "Use case: Display blog posts created in another application"
 
-    **Use case: Display blog posts created in another application**
-
-For a simple demonstration, let's consider a use case where two different applications want to display the blog posts created by a user. Both applications would need to read the same definition that contains the list of the user's blog posts.
+    For a simple demonstration, let's consider a use case where two different applications want to display the blog posts created by a user. Both applications would need to read the same record that contains the list of the user's blog posts. To do this they would need to use the same definition.
 
 ### Using new definitions
 

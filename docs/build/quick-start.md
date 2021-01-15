@@ -2,7 +2,7 @@
 
 Get started exploring what's possible with IDX using the [IDX CLI](../reference/cli.md). For runtime usage in your project, you will need to [install the IDX SDK](../reference/idx.md).
 
-!!! warning ""
+!!! example ""
 
     :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
 
@@ -32,7 +32,7 @@ idx bootstrap
 
 ## **Step 2: Query a record**
 
-Let's query an [index](../learn/glossary.md#index) for a [record](../learn/glossary.md#record) that stores a [basic profile](../guides/definitions/default.md#basic-profile). Use the `idx index:get` command and the `basicProfile` [alias](../learn/glossary.md#alias). As you can see below, we are looking up the profile of user `did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei`.
+Let's query a [record](../learn/glossary.md#record) that stores a [basic profile](../guides/definitions/default.md#basic-profile). Use the `idx index:get` command and the `basicProfile` [alias](../learn/glossary.md#alias). As you can see below, we are looking up the profile of user `did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei`.
 
 === "Command"
 
@@ -47,9 +47,7 @@ Let's query an [index](../learn/glossary.md#index) for a [record](../learn/gloss
     { name: 'Alan Turing' }
     ```
 
-!!! warning ""
-
-    Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
+Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
 
 ```bash
 idx index:get did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou
@@ -91,7 +89,7 @@ Use the `idx did:list` command to get your DID from the node.
 
 ## **Step 4: Create a record**
 
-Use the `idx index:set` command to set data to a record for the currently authenticated DID. In this example we're passing the same `basicProfile` alias as above to specify that we want to save data to record corresponding to the default basic profile definition. The final part of this command is the actual contents we want to set to the record. These contents must conform to the schema specified in the definition. If not, the command will fail.
+Use the `idx index:set` command to set data to a [record](../learn/glossary.md#record) for the currently authenticated DID. In this example we're passing the same `basicProfile` alias as above to specify that we want to save data to record corresponding to the default basic profile definition. The final part of this command is the actual contents we want to set to the record. These contents must conform to the schema specified in the definition. If not, the command will fail.
 
 ```bash
 idx index:set <did:key:myDID> basicProfile '{"name":"YourName"}'
@@ -99,7 +97,7 @@ idx index:set <did:key:myDID> basicProfile '{"name":"YourName"}'
 
 ## **Step 5: Query your record**
 
-Use the `idx index:get` command to query the basic profile record.
+Use the `idx index:get` command to query your newly created basic profile record.
 
 === "Command"
 
