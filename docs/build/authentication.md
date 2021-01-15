@@ -8,11 +8,11 @@ IDX uses [DIDs](../reference/dependency-apis.md#did) for identifiers and authent
 
 ## **Prerequisites**
 
-In order to add authentication, you must have [installed the IDX SDK](../reference/idx.md).
+In order to add authentication, you must have [installed the IDX SDK](installation.md).
 
 ## **Installation**
 
-Jump over to the [**Ceramic documentation** :octicons-link-external-16:](https://developers.ceramic.network) to learn how to add authentication to your project.
+Jump over to the [**Ceramic documentation** :octicons-link-external-16:](https://developers.ceramic.network/build/authentication/) to learn how to add authentication to your project.
 
 ## **Example**
 
