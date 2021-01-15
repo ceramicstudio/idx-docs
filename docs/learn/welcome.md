@@ -22,7 +22,7 @@ Whether you're developing a fully-featured application that gives users control 
 
 ## Development Tools
 
-[JS SDK](../reference/idx.md){: .md-button } [CLI](../reference/cli.md){: .md-button }
+[JS SDK](packages.md#idx-sdk){: .md-button } [CLI](packages.md#idx-cli){: .md-button }
 
 ## Resources
 
