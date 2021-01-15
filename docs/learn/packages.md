@@ -6,7 +6,7 @@
 
 [`js-idx`](https://github.com/ceramicstudio/js-idx) is a JavaScript/TypeScript client for adding IDX to your project. It is compatible with any JavaScript environment including vanilla web apps (desktop and mobile browsers), front-end frameworks (React.js, Vue.js, Angular.js, Next.js), server-side frameworks (Node.js), and native mobile frameworks (React Native).
 
-[**Install IDX SDK**](../reference/idx.md){: .md-button .md-button--primary }
+[**Install IDX SDK**](../build/install.md){: .md-button .md-button--primary }
 
 ## Utility libraries
 
@@ -28,4 +28,4 @@
 
 [`idx-cli`](https://github.com/ceramicstudio/idx-cli) is a command line interface for interacting with IDX from the terminal. The CLI is used for creating schemas, creating definitions, discovering definitions, testing, and more during development time.
 
-[**Install IDX CLI**](../reference/cli.md){: .md-button }
+[**Install IDX CLI**](../guides/cli.md){: .md-button }
