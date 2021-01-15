@@ -46,7 +46,7 @@ nav:
   - Guides:
       - Definitions:
           - Default definitions: guides/definitions/default.md
-          - Existing definitions: guides/definitions/discovering.md
+          - Existing definitions: guides/definitions/existing.md
           - Creating definitions: guides/definitions/creating.md
       - Storage:
           - Ceramic storage: guides/storage/ceramic.md
