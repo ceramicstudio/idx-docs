@@ -1,6 +1,6 @@
 ![banner](../images/idx-left-2.png)
 
-!!! warning ""
+!!! example ""
 
     :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change.
 
