@@ -1,4 +1,4 @@
-# Getting started with the CLI
+# Using the IDX CLI
 
 ## Prerequisites
 
