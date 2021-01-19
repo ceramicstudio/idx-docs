@@ -8,9 +8,9 @@ To add your project to this list, [edit this page and submit a pull request](htt
 
 ### **All projects**
 
-| Name                               | Type      | Category     | Description                                                        |
-| ---------------------------------- | --------- | ------------ | ------------------------------------------------------------------ |
-| [Self.ID](https://self.id)         | Web app   | Identity     | A web interface for managing various identity-related IDX records. |
-| [Kontext](https://kontext.app)     | Web app   | Productivity | A social bookmarking tool.                                         |
-| [Daemon.land](https://daemon.land) | Dev tools | SDK          | All-in-one dweb development platform.                              |
-| [Self.ID Connect](https://self.id) | Wallet    | Identity     | A hosted DID wallet and authentication system built on IDX.        |
+| Name                                                        | Type      | Category     | Description                                                        | Default aliases or other definitionsIDs |
+| ----------------------------------------------------------- | --------- | ------------ | ------------------------------------------------------------------ | --------------------------------------- |
+| Self.ID (*coming soon*)                                     | Web app   | Identity     | A web interface for managing various identity-related IDX records. | |
+| [Kontext](https://kontext.app)                              | Web app   | Productivity | A social bookmarking tool.                                         | |
+| [Daemon.land](https://daemon.land)                          | Dev tools | SDK          | All-in-one dweb development platform.                              | |
+| [3ID Connect](https://github.com/ceramicstudio/3id-connect) | Dev Tools | Wallet       | A hosted DID wallet and authentication system built on IDX.        | [`cryptoAccounts`](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts), [`threeIdKeychain`](https://developers.idx.xyz/guides/definitions/default/#3id-keychain) |
