@@ -34,7 +34,6 @@ type Definition<C extends Record<string, any> = Record<string, any>> = {
   description: string
   schema: string
   url?: string
-  family?: string
   config?: C
 }
 ```
