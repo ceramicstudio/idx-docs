@@ -103,6 +103,3 @@ extra_css:
 
 plugins:
   - search
-  - redirects:
-      redirect_maps:
-        'index.md': 'learn/welcome.md'
