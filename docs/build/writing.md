@@ -4,7 +4,7 @@ Use the [`idx.set()`](../reference/idx.md#set) method to create or modify a [rec
 
 !!! example ""
 
-    :octicons-alert-16: If an existing record is already set, calling `idx.set()` again will completely replace the record contents. Alternatively, it is possible to [merge the existing record contents](#merging-content).
+    :octicons-alert-16: If a record is already set, calling `idx.set()` again will completely replace the existing record content with new content. Alternatively, it is possible to [update only a specific portion of an existing record using `idx.merge()`](#updating-records).
 
 ## **Using default aliases**
 
@@ -44,17 +44,17 @@ await idx.set('myAlias', content)
     recordID of the record
     ```
 
-## **Merging content**
+## **Updating records**
 
 Calling `idx.set()` on an existing record completely replaces the existing content. If you want to keep the existing content and only change some fields, [`idx.merge()`](../reference/idx.md#merge) can be used instead.
 
-=== "First method call"
+=== "First set call"
 
     ```js
     await idx.set('basicProfile', { name: 'Alan Turing' })
     ```
 
-=== "Second method call"
+=== "Second merge call"
 
     ```js
     await idx.merge('basicProfile', { emoji: '💻' })
