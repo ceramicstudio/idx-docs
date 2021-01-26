@@ -27,7 +27,7 @@ To write data to IDX records and their external Ceramic documents, you must firs
 Use the `ceramic.createDocument()` method from the [Ceramic API](../../reference/dependency-apis.md#ceramicapi) to create a new note as a Ceramic document:
 
 ```javascript
-const doc = await ceramic.createDocument('tile', { content })
+const doc = await ceramic.createDocument('tile', { content: { foo: "bar" } })
 const docId = doc.id
 ```
 
