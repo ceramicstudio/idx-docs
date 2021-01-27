@@ -20,15 +20,19 @@ To write data to IDX records and their external Ceramic documents, you must firs
 
 !!! example ""
 
-    For demonstration purposes, we will use the example of a simple note-taking application. This application will store individual notes in Ceramic documents and a list of these notes will be stored in an IDX record. This IDX record will be identified with the `notesList` [alias](../../learn/glossary.md#alias).
+    For demonstration purposes, we will use [this example of a simple note-taking application](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/). This application will store individual notes in Ceramic documents and a list of these notes will be stored in an IDX record. This IDX record will be identified with the `notesList` [alias](../../learn/glossary.md#alias) and use the described [data model](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/#data-model).
 
 ### Create a new Ceramic document
 
 Use the `ceramic.createDocument()` method from the [Ceramic API](../../reference/dependency-apis.md#ceramicapi) to create a new note as a Ceramic document:
 
 ```javascript
-const doc = await ceramic.createDocument('tile', { content: { foo: "bar" } })
-const docId = doc.id
+const doc = await ceramic.createDocument('tile', {
+  content: {
+    date: new Date().toISOString(),
+    text: 'Hello world',
+  },
+})
 ```
 
 ### Add the Ceramic document to an IDX record
@@ -36,7 +40,9 @@ const docId = doc.id
 Use the `idx.set()` method from the [IDX API](../../reference/idx.md) to add the DocID of the note to their `notesList` record.
 
 ```js
-await idx.set('notesList', '<DocID of Note>')
+await idx.set('notesList', {
+  notes: [{ id: doc.id.toUrl(), title: 'My first note' }],
+})
 ```
 
 ### Update the Ceramic document
@@ -44,7 +50,9 @@ await idx.set('notesList', '<DocID of Note>')
 Use the `change()` method from the [Document API](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#change) to update the note.
 
 ```js
-await doc.change({ content })
+await doc.change({
+  content: { date: doc.content.date, text: 'Hello Ceramic' },
+})
 ```
 
 ## **Reading data**
