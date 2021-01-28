@@ -8,7 +8,7 @@ Get started exploring what's possible with IDX using the [IDX CLI](../reference/
 
 ## **Prerequisites**
 
-The IDX CLI requires [Node.js](https://nodejs.org/en/) and npm (usually installed with Node.js). Make sure to have both installed.
+The IDX CLI requires [Node.js](https://nodejs.org/en/) v14 and npm v6 (usually installed with Node.js). Make sure to have both installed.
 
 ## **Step 1: Install IDX CLI**
 
