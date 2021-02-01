@@ -15,7 +15,7 @@ The IDX CLI requires [Node.js](https://nodejs.org/en/) v14 and npm v6 (usually i
 Open your terminal and install the [IDX CLI](../reference/cli.md) and [Ceramic CLI](https://developers.ceramic.network/build/quick-start/#install-the-cli).
 
 ```bash
-npm install -g @ceramicnetwork/ceramic-cli @ceramicstudio/idx-cli
+npm install -g @ceramicnetwork/cli @ceramicstudio/idx-cli
 ```
 
 Start the Ceramic daemon. This will start a Ceramic node on your local machine and connect to it on `http://localhost:7007`.
