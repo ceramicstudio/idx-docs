@@ -16,4 +16,4 @@ idx COMMAND
 
 ### Commands
 
-All of the commands provided by the IDX CLI can be found on [Github](https://github.com/ceramicstudio/idx-cli#usage).
+All of the commands provided by the IDX CLI can be found on [Github](https://github.com/ceramicstudio/js-idx/tree/master/packages/cli#usage).

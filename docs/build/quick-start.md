@@ -113,7 +113,7 @@ Use the `idx index:get` command to query your newly created basic profile record
 
 ## **Doing more**
 
-Run the `--h` command to list all commands available in the IDX CLI. All the commands provided by the IDX CLI can also be found in the [CLI documentation](https://github.com/ceramicstudio/idx-cli#idx-cli).
+Run the `--h` command to list all commands available in the IDX CLI. All the commands provided by the IDX CLI can also be found in the [CLI documentation](https://github.com/ceramicstudio/js-idx/tree/master/packages/cli#idx-cli).
 
 ```bash
 idx --help

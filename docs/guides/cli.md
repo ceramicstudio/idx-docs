@@ -119,4 +119,4 @@ By running the `index:get` command, you can check the stored document contents:
 idx index:get me basicProfile
 ```
 
-All the commands provided by the IDX CLI can be found in [the CLI documentation](https://github.com/ceramicstudio/idx-cli#usage).
+All the commands provided by the IDX CLI can be found in [the CLI documentation](https://github.com/ceramicstudio/js-idx/tree/master/packages/cli#usage).

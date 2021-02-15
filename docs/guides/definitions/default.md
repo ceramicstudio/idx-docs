@@ -210,10 +210,10 @@ The crypto accounts definition specifies a [record](../../learn/glossary.md#reco
 
     ```js
     {
-        '0x123@eip155:1': 'ceramic://kjz123...456',            // Ethereum acct and proof     
-        '0x123@polkadot:b0a...70f': 'ceramic://kjz987...654',  // Polkadot acct and proof  
-        '0x123@fil:f': 'ceramic://kjz528...912',               // Filecoin acct and proof  
-        '0x134@cosmos:cosmoshub-2': 'ceramic://kjz382...565'   // Cosmos acct and proof  
+        '0x123@eip155:1': 'ceramic://kjz123...456',            // Ethereum acct and proof
+        '0x123@polkadot:b0a...70f': 'ceramic://kjz987...654',  // Polkadot acct and proof
+        '0x123@fil:f': 'ceramic://kjz528...912',               // Filecoin acct and proof
+        '0x134@cosmos:cosmoshub-2': 'ceramic://kjz382...565'   // Cosmos acct and proof
     }
     ```
 
@@ -317,7 +317,7 @@ The 3ID keychain definition specifies a [record](../../learn/glossary.md#record)
 
     **Adding new defaults**
 
-    If you would like to add a new default definition to this list, submit a pull request to [`idx-constants`](https://github.com/ceramicstudio/js-idx-constants) on Github. For your pull request to be accepted:
+    If you would like to add a new default definition to this list, submit a pull request to [`idx-constants`](https://github.com/ceramicstudio/js-idx/tree/master/packages/constants) on Github. For your pull request to be accepted:
 
     - The definition must be captured by a [CIP (Ceramic improvement proposal)](https://github.com/ceramicnetwork/CIP)
     - The schema used in the definition must be captured by a CIP
