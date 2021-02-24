@@ -1,6 +1,6 @@
 # IDX Docs
 
-This repository contains developer documentation for the IDX protocol. The site is hosted at [**docs.idx.xyz**](https://docs.idx.xyz).
+This repository contains developer documentation for the IDX protocol. The site is hosted at [**developers.idx.xyz**](https://developers.idx.xyz).
 
 ## Contributing
 
