@@ -209,6 +209,27 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique 
     ```
     did:3:bafy124123123123123123123123123123
     ```
+    
+
+### **CAIP-10 Account ID**
+
+[CAIP-10 Account IDs](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) is a blockchain agnostic way to describe an account on any blockchain. This may be an externally owned key-pair account, or a smart contract account. IDX uses CAIP-10s as a way to lookup the DID of a user using a `caip10-link` doctype in Ceramic. Learn more in the [Ceramic documentation](https://developers.ceramic.network).
+
+=== "Example CAIP-10 Account IDs"
+
+    ```
+    # Ethereum mainnet
+    0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1
+
+    # Bitcoin mainnet
+    128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6@bip122:000000000019d6689c085ae165831e93
+
+    # Cosmos Hub
+    cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0@cosmos:cosmoshub-3
+
+    # Kusama network
+    5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy@polkadot:b0a8d493285c2df73290dfb7e61f870f
+    ```
 
 ### **Ceramic**
 
