@@ -45,7 +45,7 @@ Returns whether a [record](../learn/glossary.md#record) exists in the [index](..
 
 ### **.get()**
 
-Returns a [record](../learn/glossary.md#record) in the [index](../learn/glossary.md#index) for a given [DID](../learn/glossary.md#did).
+Returns a [record](../learn/glossary.md#record) in the [index](../learn/glossary.md#index) for a given [DID](../learn/glossary.md#did) or [Blockchain Account ID](../learn/glossary.md##caip-10-account-id) .
 
 **Arguments:**
 
