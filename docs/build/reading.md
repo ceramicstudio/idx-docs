@@ -16,7 +16,7 @@ await idx.get('basicProfile', '<DID-or-caip10-id>')
 
 ## **Using your aliases**
 
-Pass as alias from your `aliases` object, and the [DID](../learn/glossary.md#did) or [Blockchain Account ID](../learn/glossary.md##caip-10-account-id) that you wish to query.
+Pass as alias from your `aliases` object, and the [DID](../learn/glossary.md#did) or [Blockchain Account ID](../learn/glossary.md#caip-10-account-id) that you wish to query.
 
 ```js
 await idx.get('myAlias', '<DID-or-caip10-id>')
