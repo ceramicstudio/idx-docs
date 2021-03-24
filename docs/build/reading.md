@@ -4,7 +4,7 @@ Use the [`idx.get()`](../reference/idx.md#get) method to query a [record](../lea
 
 ## **Using default aliases**
 
-Pass an alias from [default definitions](../guides/definitions/default.md), and the [DID](../learn/glossary.md#did) or [Blockchain Account ID](../learn/glossary.md##caip-10-account-id) that you wish to query.
+Pass an alias from [default definitions](../guides/definitions/default.md), and the [DID](../learn/glossary.md#did) or [Blockchain Account ID](../learn/glossary.md#caip-10-account-id) that you wish to query.
 
 For example if you want to query IDX data from the ethereum account `0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb` on mainnet you can simply use the string `0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1`.
 
