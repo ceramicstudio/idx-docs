@@ -144,3 +144,17 @@ Loads a [definition](../learn/glossary.md#index).
 1. `id: DocID | IndexKey` ([DocID](dependency-apis.md#docid) or [IndexKey](types.md#indexkey))
 
 **Returns:** [`Promise<DefinitionWithID>`](types.md#definitionwithid)
+
+## **getLegacy3BoxProfileAsBasicProfile()**
+
+!!! deprecated ""
+
+    :octicons-alert-16: This function is exposed to help projects transition from 3Box to IDX as a temporary solution. It will be removed from IDX in the future.
+
+Returns a `BasicProfile` object converted from a 3Box profile if existing for the given Ethereum `address`, or `null` if unavailable.
+
+**Arguments:**
+
+1. `address: string`: Ethereum address starting with `0x`
+
+**Returns:** `Promise<BasicProfile | null>`
