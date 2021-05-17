@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-The Ceramic and IDX CLIs require the [Node.js runtime](https://nodejs.org/en/) and the npm CLI to be installed.
+The IDX CLI requires [Node.js](https://nodejs.org/en/) v14 and npm v6 (usually installed with Node.js). Make sure to have both installed.
+
+On Linux you will also need the `libsecret` library to be installed, as [instructed here](https://github.com/atom/node-keytar#on-linux).
 
 If you have not installed the Ceramic CLI, it is recommended you use it alongside the IDX CLI, otherwise you will have to use a remote Ceramic server:
 
