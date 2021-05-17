@@ -10,6 +10,8 @@ Get started exploring what's possible with IDX using the [IDX CLI](../reference/
 
 The IDX CLI requires [Node.js](https://nodejs.org/en/) v14 and npm v6 (usually installed with Node.js). Make sure to have both installed.
 
+On Linux you will also need the `libsecret` library to be installed, as [instructed here](https://github.com/atom/node-keytar#on-linux).
+
 ## **Step 1: Install IDX CLI**
 
 Open your terminal and install the [IDX CLI](../reference/cli.md) and [Ceramic CLI](https://developers.ceramic.network/build/quick-start/#install-the-cli).
