@@ -1,14 +1,14 @@
 # Ceramic storage
 
-Learn how to use [Ceramic documents](../../learn/glossary.md#document) as [external storage](../../learn/glossary.md#external-datastore) for [records](../../learn/glossary.md#record).
+Learn how to use [Ceramic streams](../../learn/glossary.md#stream) as [external storage](../../learn/glossary.md#external-datastore) for [records](../../learn/glossary.md#record).
 
 !!! example ""
-This guide only describes how to use Ceramic documents as external storage for records. If you want to directly store or read content in records then you do not need this guide. See [writing records](../../build/writing.md) or [reading records](../../build/reading.md).
+This guide only describes how to use Ceramic streams as external storage for records. If you want to directly store or read content in records then you do not need this guide. See [writing records](../../build/writing.md) or [reading records](../../build/reading.md).
 
 ## **Prerequisites**
 
 - [Install the IDX SDK](../../build/installation.md)
-- [Add definitions](../../build/aliases.md) that utilize [Ceramic documents](../../learn/glossary.md#document) for [external storage](../../learn/glossary.md#external-datastores) to the `aliases` object in your project's JavaScript file
+- [Add definitions](../../build/aliases.md) that utilize [Ceramic streams](../../learn/glossary.md#stream) for [external storage](../../learn/glossary.md#external-datastores) to the `aliases` object in your project's JavaScript file
 
 ## **Installation**
 
@@ -16,50 +16,46 @@ Since IDX already depends on [Ceramic](../../learn/glossary.md#ceramic) to store
 
 ## **Writing data**
 
-To write data to IDX records and their external Ceramic documents, you must first [authenticate](../../build/authentication.md) the user's DID.
+To write data to IDX records and their external Ceramic streams, you must first [authenticate](../../build/authentication.md) the user's DID.
 
 !!! example ""
 
-    For demonstration purposes, we will use [this example of a simple note-taking application](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/). This application will store individual notes in Ceramic documents and a list of these notes will be stored in an IDX record. This IDX record will be identified with the `notesList` [alias](../../learn/glossary.md#alias) and use the described [data model](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/#data-model).
+    For demonstration purposes, we will use [this example of a simple note-taking application](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/). This application will store individual notes in Ceramic streams and a list of these notes will be stored in an IDX record. This IDX record will be identified with the `notesList` [alias](../../learn/glossary.md#alias) and use the described [data model](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/#data-model).
 
-### Create a new Ceramic document
+### Create a new Ceramic stream
 
-Use the `ceramic.createDocument()` method from the [Ceramic API](../../reference/dependency-apis.md#ceramicapi) to create a new note as a Ceramic document:
+Use the [`TileDocument.create()` static method](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create) from `@ceramicnetwork/stream-tile` to create a new note as a Ceramic stream:
 
 ```javascript
-const doc = await ceramic.createDocument('tile', {
-  content: {
-    date: new Date().toISOString(),
-    text: 'Hello world',
-  },
+const stream = await TileDocument.create(ceramic, {
+  date: new Date().toISOString(),
+  text: 'Hello world',
 })
 ```
 
-### Add the Ceramic document to an IDX record
+### Add the Ceramic stream to an IDX record
 
-Use the `idx.set()` method from the [IDX API](../../reference/idx.md) to add the DocID of the note to their `notesList` record.
+Use the `idx.set()` method from the [IDX API](../../reference/idx.md) to add the StreamID of the note to their `notesList` record.
 
 ```js
 await idx.set('notesList', {
-  notes: [{ id: doc.id.toUrl(), title: 'My first note' }],
+  notes: [{ id: stream.id.toUrl(), title: 'My first note' }],
 })
 ```
 
-### Update the Ceramic document
+### Update the Ceramic stream
 
-Use the `change()` method from the [Document API](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#change) to update the note.
+Use the [`update()` method](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update) of the `TileDocument` instance to update the note.
 
 ```js
-await doc.change({
-  content: { date: doc.content.date, text: 'Hello Ceramic' },
-})
+await stream.update({ date: stream.content.date, text: 'Hello Ceramic' })
 ```
 
 ## **Reading data**
 
 ### Query the IDX record
 
-Use the `idx.get()` method from the [IDX API](../../reference/idx.md) to query the `notesList` record. In this case it will return a list of DocIDs that represent the notes.
+Use the `idx.get()` method from the [IDX API](../../reference/idx.md) to query the `notesList` record. In this case it will return a list of StreamIDs that represent the notes.
 
 With an authenticated user:
 
@@ -73,12 +69,12 @@ With an unauthenticated user:
 await idx.get('notesList', '<DID>')
 ```
 
-### Query the Ceramic document
+### Query the Ceramic stream
 
-Use the `ceramic.loadDocument()` method from the [Ceramic API](../../reference/dependency-apis.md#ceramicapi) to load a document containing the note. You will need to pass a DocID from the `notesList` record above:
+Use the [`TileDocument.load()` static method](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load) from the `@ceramicnetwork/stream-tile` to load a stream containing the note. You will need to pass a StreamID from the `notesList` record above:
 
 ```js
-await ceramic.loadDocument('<DocID>')
+await TileDocument.load(ceramic, '<StreamID>')
 ```
 
 ## **More on Ceramic**

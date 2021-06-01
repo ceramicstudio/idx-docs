@@ -68,11 +68,11 @@ ceramic daemon
 
 ## Bootstrap Ceramic for IDX
 
-The IDX library relies on some Ceramic documents used as schemas and definitions from the IDX specifications to be accessible on the Ceramic network.
+The IDX library relies on some Ceramic streams used as schemas and definitions from the IDX specifications to be accessible on the Ceramic network.
 
-When using the main Ceramic network and public testnets it is likely these documents would already be present, but for private test networks and local nodes, you may have to ensure these documents are created before using IDX.
+When using the main Ceramic network and public testnets it is likely these streams would already be present, but for private test networks and local nodes, you may have to ensure these streams are created before using IDX.
 
-In order to bootstrap a Ceramic network with the necessary IDX documents, simply run the `bootstrap` command:
+In order to bootstrap a Ceramic network with the necessary IDX streams, simply run the `bootstrap` command:
 
 ```sh
 idx bootstrap
@@ -80,9 +80,9 @@ idx bootstrap
 
 ## Create your DID
 
-IDX uses Decentralized Identifiers (DID) for authentication and Identity Index documents are therefore controlled by a DID.
+IDX uses Decentralized Identifiers (DID) for authentication and Identity Index streams are therefore controlled by a DID.
 
-Before being able to interact with the Identity Index document, it is necessary to create the DID that will control it.
+Before being able to interact with the Identity Index stream, it is necessary to create the DID that will control it.
 This can easily be done using the IDX CLI:
 
 ```sh
@@ -97,9 +97,9 @@ It is possible to display all the locally created DIDs and their labels by runni
 idx did:list
 ```
 
-## Inspect the IDX document
+## Inspect the IDX index contents
 
-By running then `index:inspect` it is possible to inspect the IDX document associated to a DID.
+By running then `index:inspect` it is possible to inspect the IDX index contents associated to a DID.
 
 Assuming you have created a DID using the step above, you can run the following command:
 
@@ -115,7 +115,7 @@ Finally, once all the steps above have been successfully followed, you can start
 idx index:set me basicProfile '{"name":"Alice"}'
 ```
 
-By running the `index:get` command, you can check the stored document contents:
+By running the `index:get` command, you can check the stored record contents:
 
 ```sh
 idx index:get me basicProfile

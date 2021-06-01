@@ -23,7 +23,7 @@ For demonstration purposes, this guide will use the example of a simple note-tak
 
 !!! example ""
 
-    The individual notes objects can be stored in any [external datastore](../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic documents](../../learn/glossary.md#document). Writing these individual notes will need to be handled by the API of your datastore and is beyond the scope of IDX. An IDX record will just be used to maintain the user's list of notes.
+    The individual notes objects can be stored in any [external datastore](../../learn/glossary.md#external-datastore), but we will assume these notes are stored in [Ceramic streams](../../learn/glossary.md#stream). Writing these individual notes will need to be handled by the API of your datastore and is beyond the scope of IDX. An IDX record will just be used to maintain the user's list of notes.
 
 ## **Step 2: Create your schemas**
 
@@ -289,7 +289,8 @@ Add the [definitionIDs](../../learn/glossary.md#definitionid) of the definitions
 
 ```js
 const aliases = {
-  basicProfile: 'kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou',
+  basicProfile:
+    'kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou',
   notesList: 'kjzl6cwe1jw149hunt8wb296aprqjjja96q5etjs2oh97s0t9eku9fuz5or3w1z',
 }
 ```

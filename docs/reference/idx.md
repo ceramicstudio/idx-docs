@@ -62,9 +62,9 @@ Sets or modifies a [record](../learn/glossary.md#record) in the [index](../learn
 
 1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
 1. `content: unknown`
-1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the record is being created, if it already exists they are ignored)
 
-**Returns:** [`Promise<DocID>`](dependency-apis.md#docid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
+**Returns:** [`Promise<StreamID>`](dependency-apis.md#streamid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
 
 ### **.merge()**
 
@@ -74,9 +74,9 @@ Performs a shallow (one level) merge to a [record](../learn/glossary.md#record) 
 
 1. `name: string` ([alias](../learn/glossary.md#alias) or [IndexKey](types.md#indexkey))
 1. `content: unknown`
-1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the record is being created, if it already exists they are ignored)
 
-**Returns:** [`Promise<DocID>`](dependency-apis.md#docid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
+**Returns:** [`Promise<StreamID>`](dependency-apis.md#streamid) the [recordID](../learn/glossary.md#recordid) of the created [record](../learn/glossary.md#record)
 
 ### **.setAll()**
 
@@ -87,7 +87,7 @@ Similar to the [`.set()`](#set) method but for setting multiple [records](../lea
 **Arguments:**
 
 1. `contents: Record<string, unknown>`
-1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the record is being created, if it already exists they are ignored)
 
 **Returns:** `Promise<Record<string, string>>` the [recordIDs](../learn/glossary.md#recordid) of the created [records](../learn/glossary.md#record)
 
@@ -96,7 +96,7 @@ Similar to the [`.set()`](#set) method but for setting multiple [records](../lea
 Similar to the [`.setAll()`](#setall) method but only sets [records](../learn/glossary.md#record) for keys that are not already present in the [index](../learn/glossary.md#index).
 
 1. `contents: Record<string, unknown>`
-1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the document is being created, if it already exists they are ignored)
+1. [`options?: CreateOptions`](types.md#createoptions) (only applied if the record is being created, if it already exists they are ignored)
 
 **Returns:** `Promise<Record<string, string>>` the [recordIDs](../learn/glossary.md#recordid) of the created [records](../learn/glossary.md#record)
 
@@ -141,7 +141,7 @@ Loads a [definition](../learn/glossary.md#index).
 
 **Arguments**:
 
-1. `id: DocID | IndexKey` ([DocID](dependency-apis.md#docid) or [IndexKey](types.md#indexkey))
+1. `id: StreamID | IndexKey` ([StreamID](dependency-apis.md#streamid) or [IndexKey](types.md#indexkey))
 
 **Returns:** [`Promise<DefinitionWithID>`](types.md#definitionwithid)
 

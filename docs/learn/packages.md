@@ -18,7 +18,7 @@
 
 ### **IDX Tools**
 
-[`idx-tools`](https://github.com/ceramicstudio/js-idx/tree/master/packages/tools) is a library that provides various development utilities such as publishing definitions, publishing schemas, creating Ceramic documents, and checking schemas.
+[`idx-tools`](https://github.com/ceramicstudio/js-idx/tree/master/packages/tools) is a library that provides various development utilities such as publishing definitions, publishing schemas, creating Ceramic streams, and checking schemas.
 
 [**Install IDX Tools**](../reference/idx-tools.md){: .md-button }
 

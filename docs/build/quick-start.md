@@ -4,11 +4,13 @@ Get started exploring what's possible with IDX using the [IDX CLI](../reference/
 
 !!! example ""
 
-    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+
+<!--  Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. -->
 
 ## **Prerequisites**
 
-The IDX CLI requires [Node.js](https://nodejs.org/en/) v14 and npm v6 (usually installed with Node.js). Make sure to have both installed.
+The IDX CLI requires [Node.js](https://nodejs.org/en/) v14+ and npm v6+ (usually installed with Node.js). Make sure to have both installed.
 
 On Linux you will also need the `libsecret` library to be installed, as [instructed here](https://github.com/atom/node-keytar#on-linux).
 
@@ -49,7 +51,7 @@ Let's query a [record](../learn/glossary.md#record) that stores a [basic profile
     { name: 'Alan Turing' }
     ```
 
-Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw DocID of the basic profile definition instead of its alias and get the same data back.
+Since basic profiles are a commonly used definition on IDX, we have assigned it the default `basicProfile` alias for simplicity. [Default definitions](../guides/definitions/default.md) were installed when you ran the `idx bootstrap` command earlier. However, you could run the same `index:get` command using the raw StreamID of the basic profile definition instead of its alias and get the same data back.
 
 ```bash
 idx index:get did:key:z6Mkw1Mpfejq2R76AsQo2qJoAVaF6HH5nLDoHrKrsW5Wdnei kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou

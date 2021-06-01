@@ -19,6 +19,6 @@ Jump over to the [**Ceramic documentation** :octicons-link-external-16:](https:/
 After you have set the authenticated DID provider on the `ceramic` instance you can interact with your `idx` instance in an authenticated way. If configured correctly, it will look something like this:
 
 ```js
-await ceramic.setDIDProvider(...)
+ceramic.did = did
 await idx.get('anAlias') // uses authenticated DID
 ```

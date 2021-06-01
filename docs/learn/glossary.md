@@ -6,7 +6,7 @@
 
 ### **Index**
 
-The index is a key-value store document that stores a list of [definitionID](#definitionid) to [recordID](#recordid) mappings. These mappings repreresent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
+The index is a key-value store stream that stores a list of [definitionID](#definitionid) to [recordID](#recordid) mappings. These mappings repreresent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
 
 === "Example index"
 
@@ -21,7 +21,7 @@ The index is a key-value store document that stores a list of [definitionID](#de
 
 ### **Definition**
 
-A definition is a document which describes a [record](#record) and its [definitionID](#definitionid) acts as a key in the [index](#index). Definitions contain a [schema](#schema) and other metadata about a record. Definitions are created once by developers and the defiinitionID can be reused as a key in any number of indexes.
+A definition is a stream which describes a [record](#record) and its [definitionID](#definitionid) acts as a key in the [index](#index). Definitions contain a [schema](#schema) and other metadata about a record. Definitions are created once by developers and the defiinitionID can be reused as a key in any number of indexes.
 
 === "Example definition"
 
@@ -35,7 +35,7 @@ A definition is a document which describes a [record](#record) and its [definiti
 
 ### **Schema**
 
-A schema is a document that contain a [JSON schema](https://json-schema.org/). The [schemaURL](#schemaurl) of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
+A schema is a stream that contain a [JSON schema](https://json-schema.org/). The [schemaURL](#schemaurl) of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
 
 === "Example schema"
 
@@ -155,7 +155,7 @@ A schema is a document that contain a [JSON schema](https://json-schema.org/). T
 
 ### **Record**
 
-A record is a document which contains the JSON data described by a [definition](#definition). The [recordID](#recordid) of the record acts as a value in the [index](#index). Records are unique to users, so different users will have different records for the same definitionID. Records are entirely flexible to your use case, but many developers use them to store content or references to content.
+A record is a stream which contains the JSON data described by a [definition](#definition). The [recordID](#recordid) of the record acts as a value in the [index](#index). Records are unique to users, so different users will have different records for the same definitionID. Records are entirely flexible to your use case, but many developers use them to store content or references to content.
 
 #### Storage
 
@@ -209,11 +209,10 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique 
     ```
     did:3:bafy124123123123123123123123123123
     ```
-    
 
 ### **CAIP-10 Account ID**
 
-[CAIP-10 Account IDs](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) is a blockchain agnostic way to describe an account on any blockchain. This may be an externally owned key-pair account, or a smart contract account. IDX uses CAIP-10s as a way to lookup the DID of a user using a `caip10-link` doctype in Ceramic. Learn more in the [Ceramic documentation](https://developers.ceramic.network).
+[CAIP-10 Account IDs](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) is a blockchain agnostic way to describe an account on any blockchain. This may be an externally owned key-pair account, or a smart contract account. IDX uses CAIP-10s as a way to lookup the DID of a user using a `caip10-link` streamType in Ceramic. Learn more in the [Ceramic documentation](https://developers.ceramic.network).
 
 === "Example CAIP-10 Account IDs"
 
@@ -233,25 +232,19 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique 
 
 ### **Ceramic**
 
-Ceramic is a decentralized content management network for mutable documents. IDX uses Ceramic to store and query IDX documents including [indexes](#index), [definitions](#definition), [schemas](#schema), and [records](#record).
+Ceramic is a decentralized content management network for mutable data streams. IDX uses Ceramic to store and query IDX streams including [indexes](#index), [definitions](#definition), [schemas](#schema), and [records](#record).
 
 > Learn more about [Ceramic network](https://developers.ceramic.network).
 
-### **Document**
+### **Stream**
 
-A document is a mutable datastore on [Ceramic](#ceramic) that contains verifiable data. Documents are identified by [DocIDs](#docid).
+A stream is a mutable datastore on [Ceramic](#ceramic) that contains verifiable data. Streams are identified by [StreamIDs](#streamid).
 
-=== "Example Document"
+### **StreamID**
 
-    ```
+A StreamID is a unique, immutable identifier for a [stream](#stream) on [Ceramic](#ceramic).
 
-    ```
-
-### **DocID**
-
-A DocID is a unique, immutable identifier for a [document](#document) on [Ceramic](#ceramic).
-
-=== "Example DocID"
+=== "Example StreamID"
 
     ```
     kyz4bdj4r8dwb4khf9ep3b4wjrh84qbfbh3477wedoe9fn3fsz9mn
@@ -259,15 +252,15 @@ A DocID is a unique, immutable identifier for a [document](#document) on [Cerami
 
 ### **DefinitionID**
 
-A definitionID is a [DocID](#docid) of a [definition](#definition).
+A definitionID is a [StreamID](#streamid) of a [definition](#definition).
 
 ### **IndexID**
 
-An indexID is a [docID](#docid) of an [index](#index).
+An indexID is a [StreamID](#streamid) of an [index](#index).
 
 ### **SchemaID**
 
-A schemaID is a [docID](#docid) of a [schema](#schema).
+A schemaID is a [StreamID](#streamid) of a [schema](#schema).
 
 ### **SchemaURL**
 
@@ -275,9 +268,7 @@ A schemaURL is a [Ceramic](#ceramic) URL for a [schema](#schema).
 
 ### **RecordID**
 
-A recordID is a [docID](#docid) of a [record](#record).
-
-### **VersionID**
+A recordID is a [StreamID](#streamid) of a [record](#record).
 
 ### **External datastores**
 
