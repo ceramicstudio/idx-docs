@@ -48,7 +48,7 @@ idx index:inspect <UserDID>
 Use the `idx definition:info` command to view a given definition. If the provided definition is valid it will display the contents of the definition. If it's invalid it will throw an error.
 
 ```bash
-idx definition:info <DefinitionDocID>
+idx definition:info <DefinitionID>
 ```
 
 === "Command"
@@ -65,7 +65,7 @@ idx definition:info <DefinitionDocID>
       name: 'Basic Profile',
       schema: 'ceramic://k3y52l7qbv1frxjdr9qpn9ldvbxb0jg4eig7wtjkdu6gk84vyazw9j4txf4o6d2io',
       description: 'Basic profile information for a DID',
-      id: DocID(kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou)
+      id: StreamID(kjzl6cwe1jw14bdsytwychcd91fcc7xibfj8bc0r2h3w5wm8t6rt4dtlrotl1ou)
     }
     ```
 
@@ -74,7 +74,7 @@ idx definition:info <DefinitionDocID>
 Use the `idx definition:schema` command to view the schema for a given definition:
 
 ```bash
-idx definition:schema <SchemaDocID>
+idx definition:schema <SchemaID>
 ```
 
 === "Command"

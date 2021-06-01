@@ -26,7 +26,7 @@ type Schema = Record<string, unknown>
 
 ### **Definition**
 
-A definition is a Ceramic document that describes a record in the index.
+A definition is a Ceramic stream that describes a record in the index.
 
 ```ts
 type Definition<C extends Record<string, any> = Record<string, any>> = {
@@ -42,8 +42,8 @@ type Definition<C extends Record<string, any> = Record<string, any>> = {
 
 ```ts
 type DefinitionWithID<
-  C extends Record<string, unknown> = Record<string, unknown>
-> = Definition<C> & { id: DocID }
+  C extends Record<string, unknown> = Record<string, unknown>,
+> = Definition<C> & { id: StreamID }
 ```
 
 ### **Aliases**

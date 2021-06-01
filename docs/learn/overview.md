@@ -8,7 +8,7 @@ IDX is an identity protocol for open applications. It provides a decentralized [
 
 ### Index
 
-The [index](glossary.md#index) is a key-value document which stores a list of [definitionID](glossary.md#definitionid) to [recordID](glossary.md#recordid) mappings.
+The [index](glossary.md#index) is a key-value stream which stores a list of [definitionID](glossary.md#definitionid) to [recordID](glossary.md#recordid) mappings.
 
 ```json
 {
@@ -21,7 +21,7 @@ The [index](glossary.md#index) is a key-value document which stores a list of [d
 
 ### Definition
 
-A [definition](glossary.md#definition) is a document which describes a [record](#record). It is identified by a [definitionID](glossary.md#definitionid).
+A [definition](glossary.md#definition) is a stream which describes a [record](#record). It is identified by a [definitionID](glossary.md#definitionid).
 
 ```js
 {
@@ -33,7 +33,7 @@ A [definition](glossary.md#definition) is a document which describes a [record](
 
 ### Schema
 
-A [schema](glossary.md#schema) is a document which contains a [JSON schema](https://json-schema.org/). It specifies the data format of a [record](#record). It is identified by a [schemaURL](glossary.md#schemaurl) which is included in a [definition](#definition).
+A [schema](glossary.md#schema) is a stream which contains a [JSON schema](https://json-schema.org/). It specifies the data format of a [record](#record). It is identified by a [schemaURL](glossary.md#schemaurl) which is included in a [definition](#definition).
 
 ```json
 {
@@ -151,7 +151,7 @@ A [schema](glossary.md#schema) is a document which contains a [JSON schema](http
 
 ### Record
 
-A [record](glossary.md#record) is a document which contains data specified by a definition. It is identified by a [recordID](glossary.md#recordid).
+A [record](glossary.md#record) is a stream which contains data specified by a definition. It is identified by a [recordID](glossary.md#recordid).
 
 ```js
 {

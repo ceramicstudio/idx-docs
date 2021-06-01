@@ -4,7 +4,9 @@ Install the [IDX SDK](../learn/packages.md#idx-sdk) and set up your project.
 
 !!! example ""
 
-    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+    :octicons-alert-16: IDX is in alpha. Libraries may be unstable and APIs are subject to change. Data created on IDX during alpha will *not* be portable to production. Please share what you're working on and report any issues in the [IDX Discord](https://chat.idx.xyz).
+
+<!-- Once [Ceramic Network](https://ceramic.network) launches mainnet in late Q1 2021, IDX will move to production. -->
 
 ## **Installation**
 
@@ -58,7 +60,6 @@ Set the HTTP URL of the Ceramic node you are using in your project to your `cera
 - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Ceramic Clay testnet. Running your own node allows you to persist data and have full control, however this is process is not yet well documented. If you choose to run your own node, be sure to add your node to the Ceramic [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request. This allows other nodes to discover your node.
 
 - LocalHost `https://localhost:7007`: Provides read access to the Clay testnet. Writes made to this local node will only be available to nodes in the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network. Users need to first have a Ceramic daemon running locally using the CLI.
-
 
 ## **Example**
 

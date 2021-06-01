@@ -14,13 +14,13 @@ DID instance exported by the [`dids`](https://github.com/ceramicnetwork/js-did) 
 
 DID Provider interface exported by the [`dids`](https://github.com/ceramicnetwork/js-did) library
 
-### **DocID**
+### **StreamID**
 
-DocID instance exported by the [`@ceramicnetwork/docid`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_docid.html) library
+StreamID instance exported by the [`@ceramicnetwork/streamid`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_streamid.html) library
 
-### **Doctype**
+### **TileDocument**
 
-Doctype interface exported by the [`@ceramicnetwork/common`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_common.html) library
+TileDocument instance exported by the [`@ceramicnetwork/stream-tile`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html) library
 
 ### **JWSSignature**
 
