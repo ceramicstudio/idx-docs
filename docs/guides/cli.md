@@ -115,7 +115,7 @@ Finally, once all the steps above have been successfully followed, you can start
 idx index:set me basicProfile '{"name":"Alice"}'
 ```
 
-By running the `index:get` command, you can check the stored record contents:
+By running the `index:get` command, you can check the stored record:
 
 ```sh
 idx index:get me basicProfile
