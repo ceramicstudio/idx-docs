@@ -246,7 +246,7 @@ Because we are using two records in our example, we will need to create two defi
 ```js
 {
   name: 'Profile',
-  description: 'A basic user profile', // optional
+  description: 'A basic user profile',
   schema: '<schema URL from previous command>',
   config: {}, //optional
 }
@@ -257,7 +257,7 @@ Because we are using two records in our example, we will need to create two defi
 ```js
 {
   name: 'Notes',
-  description: 'A list of notes', // optional
+  description: 'A list of notes',
   schema: '<schema URL from previous command>',
   config: {} //optional
 }
