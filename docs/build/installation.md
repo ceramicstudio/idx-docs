@@ -10,7 +10,7 @@ Install the [IDX SDK](../learn/packages.md#idx-sdk) and set up your project.
 
 ## **Installation**
 
-Install the [IDX SDK](../learn/packages.md#idx-sdk) and the [Ceramic HTTP client](https://developers.ceramic.network/reference/javascript/clients/#http-client) using npm.
+Install the [IDX SDK](../learn/packages.md#idx-sdk) and the [Ceramic HTTP client](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_http_client.html) using npm.
 
 ```bash
 npm install @ceramicnetwork/http-client @ceramicstudio/idx
