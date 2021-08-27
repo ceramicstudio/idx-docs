@@ -10,7 +10,7 @@ Get started exploring what's possible with IDX using the [IDX CLI](../reference/
 
 ## **Prerequisites**
 
-The IDX CLI requires [Node.js](https://nodejs.org/en/) v14+ and npm v6+ (usually installed with Node.js). Make sure to have both installed.
+The IDX CLI requires [Node.js](https://nodejs.org/en/) v14+ and npm v7+ (usually installed with Node.js). Make sure to have both installed.
 
 On Linux you will also need the `libsecret` library to be installed, as [instructed here](https://github.com/atom/node-keytar#on-linux).
 
