@@ -1,0 +1,1482 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Specs, docs, guides, and APIs for the IDX protocol">
+      
+      
+      
+      
+        <link rel="canonical" href="https://developers.idx.xyz/reference/idx/">
+      
+      <link rel="icon" href="../../images/icon-idx-favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
+    
+    
+      
+        <title>IDX SDK - IDX Developers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cdeb8541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6SKY4F2GXZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-6SKY4F2GXZ');
+</script>
+
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IDX SDK | IDX Developers" />
+  <meta property="og:description" content="Specs, docs, guides, and APIs for the IDX protocol" />
+  <meta property="og:url" content="https://developers.idx.xyz/reference/idx/" />
+  <meta property="og:image" content="https://developers.idx.xyz/images/idx-og.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@identityindex" />
+  <meta name="twitter:creator" content="@identityindex" />
+  <meta name="twitter:title" content="IDX SDK | IDX Developers" />
+  <meta name="twitter:description" content="Specs, docs, guides, and APIs for the IDX protocol" />
+  <meta name="twitter:image" content="https://developers.idx.xyz/images/idx-og.png" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#idx-sdk-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner md-announce">
+          <div class="md-banner__inner md-announce__inner md-grid md-typeset">
+            
+  <p>The IDX runtime and tools have been deprecated in favor of the new <a href="https://developers.ceramic.network/tools/glaze/overview/">Glaze</a> and <a href="https://developers.ceramic.network/tools/self-id/overview/">Self.ID</a> projects to better support the IDX protocol.</p>
+  <p>You can read the <a href="https://blog.ceramic.network/the-next-architecture-for-building-web3-data-applications/">announcement blog post</a> for more details.</p>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IDX Developers" class="md-header__button md-logo" aria-label="IDX Developers" data-md-component="logo">
+      
+  <img src="../../images/idx-white.svg" alt="logo" />
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IDX Developers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IDX SDK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ceramicstudio/js-idx/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicstudio/js-idx
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+      
+      <a href="../../learn/welcome/" class="md-tabs__link">
+        Learn
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+      
+      <a href="../../build/quick-start/" class="md-tabs__link">
+        Build
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+      
+      <a href="../../guides/definitions/default/" class="md-tabs__link">
+        Guides
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+      
+        
+      
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  <li class="md-tabs__item">
+    <a href="https://chat.idx.xyz" class="md-tabs__link">
+      Chat
+    </a>
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    <a href="https://blog.ceramic.network/tag/identity" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IDX Developers" class="md-nav__button md-logo" aria-label="IDX Developers" data-md-component="logo">
+      
+  <img src="../../images/idx-white.svg" alt="logo" />
+
+    </a>
+    IDX Developers
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ceramicstudio/js-idx/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicstudio/js-idx
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" data-md-state="indeterminate" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/welcome/" class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/packages/" class="md-nav__link">
+        Packages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/ecosystem/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Build
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Build" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Build
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/aliases/" class="md-nav__link">
+        Adding aliases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/reading/" class="md-nav__link">
+        Reading records
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/writing/" class="md-nav__link">
+        Writing records
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/share/" class="md-nav__link">
+        Share your project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Definitions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Definitions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Definitions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/definitions/default/" class="md-nav__link">
+        Default definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/definitions/existing/" class="md-nav__link">
+        Existing definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/definitions/creating/" class="md-nav__link">
+        Creating definitions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/storage/ceramic/" class="md-nav__link">
+        Ceramic storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          CLI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/cli/" class="md-nav__link">
+        Using the CLI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IDX SDK
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IDX SDK
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idx-class" class="md-nav__link">
+    IDX class
+  </a>
+  
+    <nav class="md-nav" aria-label="IDX class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticated" class="md-nav__link">
+    .authenticated
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ceramic" class="md-nav__link">
+    .ceramic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    .id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    .has()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    .get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    .set()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    .merge()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setall" class="md-nav__link">
+    .setAll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefaults" class="md-nav__link">
+    .setDefaults()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    .remove()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getindex" class="md-nav__link">
+    .getIndex()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterator" class="md-nav__link">
+    .iterator()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdefinition" class="md-nav__link">
+    .getDefinition()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getlegacy3boxprofileasbasicprofile" class="md-nav__link">
+    getLegacy3BoxProfileAsBasicProfile()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        IDX CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idx-tools/" class="md-nav__link">
+        IDX Tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idx-constants/" class="md-nav__link">
+        IDX Constants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-apis/" class="md-nav__link">
+        Dependency APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://chat.idx.xyz" class="md-nav__link">
+        Chat
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://blog.ceramic.network/tag/identity" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idx-class" class="md-nav__link">
+    IDX class
+  </a>
+  
+    <nav class="md-nav" aria-label="IDX class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticated" class="md-nav__link">
+    .authenticated
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ceramic" class="md-nav__link">
+    .ceramic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    .id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    .has()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    .get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    .set()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    .merge()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setall" class="md-nav__link">
+    .setAll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefaults" class="md-nav__link">
+    .setDefaults()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    .remove()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getindex" class="md-nav__link">
+    .getIndex()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterator" class="md-nav__link">
+    .iterator()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdefinition" class="md-nav__link">
+    .getDefinition()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getlegacy3boxprofileasbasicprofile" class="md-nav__link">
+    getLegacy3BoxProfileAsBasicProfile()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ceramicstudio/idx-docs/edit/main/docs/reference/idx.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="idx-sdk-reference">IDX SDK Reference<a class="headerlink" href="#idx-sdk-reference" title="Permanent link">&para;</a></h1>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>npm install @ceramicstudio/idx
+</code></pre></div>
+<h2 id="idx-class">IDX class<a class="headerlink" href="#idx-class" title="Permanent link">&para;</a></h2>
+<h3 id="constructor"><strong>constructor</strong><a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h3>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><a href="../types/#idxoptions"><code>options: IDXOptions</code></a></li>
+</ol>
+<h3 id="authenticated"><strong>.authenticated</strong><a class="headerlink" href="#authenticated" title="Permanent link">&para;</a></h3>
+<p>Returns whether a <a href="../dependency-apis/#did">DID</a> is currently <a href="../../build/authentication/">authenticated</a>.</p>
+<p><strong>Returns:</strong> <code>boolean</code></p>
+<h3 id="ceramic"><strong>.ceramic</strong><a class="headerlink" href="#ceramic" title="Permanent link">&para;</a></h3>
+<p><strong>Returns:</strong> <a href="../dependency-apis/#ceramicapi"><code>CeramicApi</code></a></p>
+<h3 id="id"><strong>.id</strong><a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
+<p>Returns the <a href="../dependency-apis/#did">DID</a> of the currently authenticated user.</p>
+<blockquote>
+<p>Accessing this property will throw an error if the instance is not authenticated.</p>
+</blockquote>
+<p><strong>Returns:</strong> <code>string</code></p>
+<h3 id="has"><strong>.has()</strong><a class="headerlink" href="#has" title="Permanent link">&para;</a></h3>
+<p>Returns whether a <a href="../../learn/glossary/#record">record</a> exists in the <a href="../../learn/glossary/#index">index</a> for a given <a href="../../learn/glossary/#did">DID</a>.</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>name: string</code> (<a href="../../learn/glossary/#alias">alias</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+<li><code>did?: string = this.id</code></li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;boolean&gt;</code></p>
+<h3 id="get"><strong>.get()</strong><a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
+<p>Returns a <a href="../../learn/glossary/#record">record</a> in the <a href="../../learn/glossary/#index">index</a> for a given <a href="../../learn/glossary/#did">DID</a> or <a href="../../learn/glossary/#caip-10-account-id">Blockchain Account ID</a> .</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>name: string</code> (<a href="../../learn/glossary/#alias">alias</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+<li><code>did?: string = this.id</code></li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;unknown&gt;</code></p>
+<h3 id="set"><strong>.set()</strong><a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<p>Sets or modifies a <a href="../../learn/glossary/#record">record</a> in the <a href="../../learn/glossary/#index">index</a> of the authenticated <a href="../dependency-apis/#did">DID</a>.</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>name: string</code> (<a href="../../learn/glossary/#alias">alias</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+<li><code>content: unknown</code></li>
+<li><a href="../types/#createoptions"><code>options?: CreateOptions</code></a> (only applied if the record is being created, if it already exists they are ignored)</li>
+</ol>
+<p><strong>Returns:</strong> <a href="../dependency-apis/#streamid"><code>Promise&lt;StreamID&gt;</code></a> the <a href="../../learn/glossary/#recordid">recordID</a> of the created <a href="../../learn/glossary/#record">record</a></p>
+<h3 id="merge"><strong>.merge()</strong><a class="headerlink" href="#merge" title="Permanent link">&para;</a></h3>
+<p>Performs a shallow (one level) merge to a <a href="../../learn/glossary/#record">record</a> in the <a href="../../learn/glossary/#index">index</a> of the authenticated <a href="../dependency-apis/#did">DID</a>.</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>name: string</code> (<a href="../../learn/glossary/#alias">alias</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+<li><code>content: unknown</code></li>
+<li><a href="../types/#createoptions"><code>options?: CreateOptions</code></a> (only applied if the record is being created, if it already exists they are ignored)</li>
+</ol>
+<p><strong>Returns:</strong> <a href="../dependency-apis/#streamid"><code>Promise&lt;StreamID&gt;</code></a> the <a href="../../learn/glossary/#recordid">recordID</a> of the created <a href="../../learn/glossary/#record">record</a></p>
+<h3 id="setall"><strong>.setAll()</strong><a class="headerlink" href="#setall" title="Permanent link">&para;</a></h3>
+<p>Similar to the <a href="#set"><code>.set()</code></a> method but for setting multiple <a href="../../learn/glossary/#record">records</a> at once in a more efficient way.</p>
+<blockquote>
+<p>The index will only get updated if all records are successfully set.</p>
+</blockquote>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>contents: Record&lt;string, unknown&gt;</code></li>
+<li><a href="../types/#createoptions"><code>options?: CreateOptions</code></a> (only applied if the record is being created, if it already exists they are ignored)</li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;Record&lt;string, string&gt;&gt;</code> the <a href="../../learn/glossary/#recordid">recordIDs</a> of the created <a href="../../learn/glossary/#record">records</a></p>
+<h3 id="setdefaults"><strong>.setDefaults()</strong><a class="headerlink" href="#setdefaults" title="Permanent link">&para;</a></h3>
+<p>Similar to the <a href="#setall"><code>.setAll()</code></a> method but only sets <a href="../../learn/glossary/#record">records</a> for keys that are not already present in the <a href="../../learn/glossary/#index">index</a>.</p>
+<ol>
+<li><code>contents: Record&lt;string, unknown&gt;</code></li>
+<li><a href="../types/#createoptions"><code>options?: CreateOptions</code></a> (only applied if the record is being created, if it already exists they are ignored)</li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;Record&lt;string, string&gt;&gt;</code> the <a href="../../learn/glossary/#recordid">recordIDs</a> of the created <a href="../../learn/glossary/#record">records</a></p>
+<h3 id="remove"><strong>.remove()</strong><a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
+<p>Removes a <a href="../../learn/glossary/#definitionid">definitionID</a>:<a href="../../learn/glossary/#recordid">recordID</a> pair from the <a href="../../learn/glossary/#index">index</a> of the authenticated <a href="../dependency-apis/#did">DID</a>.</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>name: string</code> (<a href="../../learn/glossary/#alias">alias</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;void&gt;</code></p>
+<h3 id="getindex"><strong>.getIndex()</strong><a class="headerlink" href="#getindex" title="Permanent link">&para;</a></h3>
+<p>Returns the <a href="../../learn/glossary/#index">index</a> for the given <a href="../../learn/glossary/#did">DID</a>.</p>
+<blockquote>
+<p>This method can be used to get the full definitionID:recordID mapping at once</p>
+</blockquote>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>did?: string = this.id</code></li>
+</ol>
+<p><strong>Returns:</strong> <a href="../types/#index"><code>Promise&lt;Index | null&gt;</code></a></p>
+<h3 id="iterator"><strong>.iterator()</strong><a class="headerlink" href="#iterator" title="Permanent link">&para;</a></h3>
+<p>Returns an async iterator of <a href="../types/#entry"><code>Entry</code></a> for the given <a href="../../learn/glossary/#did">DID</a>.</p>
+<blockquote>
+<p>This method can be used to iteratively load all the records in the index</p>
+</blockquote>
+<p><strong>Arguments:</strong>
+å</p>
+<ol>
+<li><code>did?: string = this.id</code></li>
+</ol>
+<p><strong>Returns:</strong> <a href="../types/#entry"><code>AsyncIterableIterator&lt;Entry&gt;</code></a></p>
+<h3 id="getdefinition"><strong>.getDefinition()</strong><a class="headerlink" href="#getdefinition" title="Permanent link">&para;</a></h3>
+<p>Loads a <a href="../../learn/glossary/#index">definition</a>.</p>
+<p><strong>Arguments</strong>:</p>
+<ol>
+<li><code>id: StreamID | IndexKey</code> (<a href="../dependency-apis/#streamid">StreamID</a> or <a href="../types/#indexkey">IndexKey</a>)</li>
+</ol>
+<p><strong>Returns:</strong> <a href="../types/#definitionwithid"><code>Promise&lt;DefinitionWithID&gt;</code></a></p>
+<h2 id="getlegacy3boxprofileasbasicprofile"><strong>getLegacy3BoxProfileAsBasicProfile()</strong><a class="headerlink" href="#getlegacy3boxprofileasbasicprofile" title="Permanent link">&para;</a></h2>
+<div class="admonition deprecated">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg></span> This function is exposed to help projects transition from 3Box to IDX as a temporary solution. It will be removed from IDX in the future.</p>
+</div>
+<p>Returns a <code>BasicProfile</code> object converted from a 3Box profile if existing for the given Ethereum <code>address</code>, or <code>null</code> if unavailable.</p>
+<p><strong>Arguments:</strong></p>
+<ol>
+<li><code>address: string</code>: Ethereum address starting with <code>0x</code></li>
+</ol>
+<p><strong>Returns:</strong> <code>Promise&lt;BasicProfile | null&gt;</code></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../guides/cli/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using the CLI" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Using the CLI
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../cli/" class="md-footer__link md-footer__link--next" aria-label="Next: IDX CLI" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              IDX CLI
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            IDX is open sourced under MIT and Apache 2
+          </div>
+        
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ceramicnetwork/ceramic" target="_blank" class="md-footer-social__link fa fa-"></a>
+    
+      <a href="https://twitter.com/ceramicnetwork" target="_blank" class="md-footer-social__link fa fa-"></a>
+    
+      <a href="http://chat.idx.xyz" class="md-footer-social__link fa" target="_blank">
+        <img src="../../images/icon-discord-white.svg" style="margin-left:10px" width="16px">
+      </a>
+      <a href="http://github.com/ceramicstudio/js-idx" class="md-footer-social__link fa" target="_blank">
+        <img src="../../images/icon-github-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://twitter.com/identityindex" class="md-footer-social__link fa" target="_blank">
+        <img src="../../images/icon-twitter-white.svg" style="margin-left:10px" width="20px">
+      </a>
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.sections", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tables.js"></script>
+      
+    
+  </body>
+</html>

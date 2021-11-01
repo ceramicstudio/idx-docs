@@ -1,0 +1,31 @@
+:root {
+  --md-primary-fg-color: #6620ff;
+  --md-accent-fg-color: #6620ff;
+}
+
+.md-header-nav__button.md-logo img,
+ .md-header-nav__button.md-logo svg {
+  width: 2rem;
+}
+
+.md-footer {
+  margin-top: 2rem;
+}
+
+.md-square {
+  height: 5rem;
+  width: 100%;
+  max-width: 200px;
+  display: inline-block;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 3rem;
+}
+
+.md-announce a,
+.md-announce a:focus,
+.md-announce a:hover {
+  color: #f87236;
+}
