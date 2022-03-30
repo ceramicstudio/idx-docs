@@ -6,7 +6,7 @@
 
 ### **Index**
 
-The index is a key-value store stream that stores a list of [definitionID](#definitionid) to [recordID](#recordid) mappings. These mappings repreresent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
+The index is a key-value store stream that stores a list of [definitionID](#definitionid) to [recordID](#recordid) mappings. These mappings represent all of the data owned by a given DID. The index is the core component of IDX and each [DID](#did) has only one.
 
 === "Example index"
 
@@ -21,7 +21,7 @@ The index is a key-value store stream that stores a list of [definitionID](#defi
 
 ### **Definition**
 
-A definition is a stream which describes a [record](#record) and its [definitionID](#definitionid) acts as a key in the [index](#index). Definitions contain a [schema](#schema) and other metadata about a record. Definitions are created once by developers and the defiinitionID can be reused as a key in any number of indexes.
+A definition is a stream which describes a [record](#record) and its [definitionID](#definitionid) acts as a key in the [index](#index). Definitions contain a [schema](#schema) and other metadata about a record. Definitions are created once by developers and the [definitionID](#definitionid) can be reused as a key in any number of indexes.
 
 === "Example definition"
 
@@ -35,7 +35,7 @@ A definition is a stream which describes a [record](#record) and its [definition
 
 ### **Schema**
 
-A schema is a stream that contain a [JSON schema](https://json-schema.org/). The [schemaURL](#schemaurl) of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
+A schema is a stream that contains a [JSON schema](https://json-schema.org/). The [schemaURL](#schemaurl) of the schema is included in a [definition](#definition) and is used to enforce the data format of a [record](#record).
 
 === "Example schema"
 
@@ -155,7 +155,7 @@ A schema is a stream that contain a [JSON schema](https://json-schema.org/). The
 
 ### **Record**
 
-A record is a stream which contains the JSON data described by a [definition](#definition). The [recordID](#recordid) of the record acts as a value in the [index](#index). Records are unique to users, so different users will have different records for the same definitionID. Records are entirely flexible to your use case, but many developers use them to store content or references to content.
+A record is a stream which contains the JSON data described by a [definition](#definition). The [recordID](#recordid) of the record acts as a value in the [index](#index). Records are unique to users, so different users will have different records for the same [definitionID](#definitionid). Records are entirely flexible to your use case, but many developers use them to store content or references to content.
 
 #### Storage
 
@@ -202,7 +202,7 @@ An alias is an application-level construct that makes it easy to reference and i
 
 ### **DID**
 
-DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for gloablly unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation](https://developers.ceramic.network).
+DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for globally unique decentralized identifiers. IDX uses DIDs for user identifiers and authentication. There currently are more than 60+ implementations of DIDs, called methods. IDX supports any DID method. Learn more about DIDs in the [Ceramic documentation](https://developers.ceramic.network).
 
 === "Example DID"
 
