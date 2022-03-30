@@ -177,7 +177,7 @@ A [record](glossary.md#record) is a stream which contains data specified by a de
 ### Reading records
 
 1. Developer queries an [index](#index) using a [DID](glossary.md#did) and a [definitionID](glossary.md#definitionid) or [alias](glossary.md#alias).
-1. Developer gets back the [record](#record) that corresponds to the [definitionID](glossarymd#definitionid).
+1. Developer gets back the [record](#record) that corresponds to the [definitionID](glossary.md#definitionid).
 
 > Learn more about [reading records](../build/reading.md).
 
